@@ -67,7 +67,7 @@ export const useAppStore = create<AppState>((set) => ({
   isAdminLoggedIn: false,
   setAdminLoggedIn: (isAdminLoggedIn) => set({ isAdminLoggedIn }),
 
-  // הגדרות
+  // הגדרות - ברירת מחדל, יתעדכן אחרי טעינה
   settings: DEFAULT_SETTINGS,
   refreshSettings: () => set({ settings: DataManager.getSettings() }),
 

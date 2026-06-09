@@ -1,18 +1,18 @@
 // ===================================================================
-// AdminSettings - ניהול הגדרות (טוגלים, קטגוריות, טקסטים)
+// AdminSettings - ניהול הגדרות (טוגלים, מצב הצבעה, קטגוריות, טקסטים)
 // ===================================================================
 
 'use client';
 
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
 import { useAppStore } from '@/store/app-store';
-import { DataManager, type Settings } from '@/lib/data-manager';
-import { ArrowLeft, Settings, Plus, X, Save, RotateCcw, Globe, Type } from 'lucide-react';
+import { DataManager, type VotingMode, DEFAULT_SETTINGS } from '@/lib/data-manager';
+import { ArrowLeft, Settings, Plus, X, Save, RotateCcw, Globe, Type, Vote, Info } from 'lucide-react';
 
 export function AdminSettings() {
   const settings = useAppStore((s) => s.settings);
@@ -23,6 +23,7 @@ export function AdminSettings() {
   // הגדרות מקומיות לעריכה
   const [votingOpen, setVotingOpen] = useState(settings.voting_open);
   const [submissionOpen, setSubmissionOpen] = useState(settings.submission_open);
+  const [votingMode, setVotingMode] = useState<VotingMode>(settings.voting_mode);
 
   // קטגוריות
   const [categoriesHe, setCategoriesHe] = useState<string[]>([...settings.categories.he]);
@@ -33,16 +34,19 @@ export function AdminSettings() {
   // טקסטים
   const [textsHe, setTextsHe] = useState<Record<string, string>>({ ...settings.texts.he });
   const [textsAr, setTextsAr] = useState<Record<string, string>>({ ...settings.texts.ar });
-  const [newKeyHe, setNewKeyHe] = useState('');
-  const [newValueHe, setNewValueHe] = useState('');
-  const [newKeyAr, setNewKeyAr] = useState('');
-  const [newValueAr, setNewValueAr] = useState('');
 
   // ---- שמירת טוגלים ----
   const handleToggle = (key: 'voting_open' | 'submission_open', value: boolean) => {
     if (key === 'voting_open') setVotingOpen(value);
     else setSubmissionOpen(value);
     DataManager.updateSettings({ [key]: value });
+    refreshSettings();
+  };
+
+  // ---- שמירת מצב הצבעה ----
+  const handleVotingModeChange = (mode: VotingMode) => {
+    setVotingMode(mode);
+    DataManager.updateSettings({ voting_mode: mode });
     refreshSettings();
   };
 
@@ -98,20 +102,6 @@ export function AdminSettings() {
     setTextsAr((prev) => ({ ...prev, [key]: value }));
   };
 
-  const addTextHe = () => {
-    if (!newKeyHe.trim()) return;
-    setTextsHe((prev) => ({ ...prev, [newKeyHe.trim()]: newValueHe }));
-    setNewKeyHe('');
-    setNewValueHe('');
-  };
-
-  const addTextAr = () => {
-    if (!newKeyAr.trim()) return;
-    setTextsAr((prev) => ({ ...prev, [newKeyAr.trim()]: newValueAr }));
-    setNewKeyAr('');
-    setNewValueAr('');
-  };
-
   // ---- איפוס הגדרות ----
   const resetSettings = () => {
     const msg = language === 'he'
@@ -120,10 +110,11 @@ export function AdminSettings() {
     if (window.confirm(msg)) {
       localStorage.removeItem('empathy_settings');
       localStorage.removeItem('empathy_initialized');
-      DataManager.initData();
+      DataManager.initDefaults();
       const fresh = DataManager.getSettings();
       setVotingOpen(fresh.voting_open);
       setSubmissionOpen(fresh.submission_open);
+      setVotingMode(fresh.voting_mode);
       setCategoriesHe([...fresh.categories.he]);
       setCategoriesAr([...fresh.categories.ar]);
       setTextsHe({ ...fresh.texts.he });
@@ -203,6 +194,88 @@ export function AdminSettings() {
               checked={votingOpen}
               onCheckedChange={(v) => handleToggle('voting_open', v)}
             />
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* מצב הצבעה - חשוב! */}
+      <Card className="border-[#0ca7aa]/30">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Vote className="w-5 h-5 text-[#0ca7aa]" />
+            {language === 'he' ? 'מצב הצבעה' : 'وضع التصويت'}
+          </CardTitle>
+          <CardDescription className="flex items-start gap-2">
+            <Info className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+            <span>
+              {language === 'he'
+                ? 'קבע כיצד המצביעים יכולים להצביע. בחר את המצב המתאים לתחרות.'
+                : 'حدد كيف يمكن للمصوتين التصويت. اختر الوضع المناسب للمسابقة.'}
+            </span>
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {/* אפשרות 1: הצבעה בודדת */}
+          <button
+            onClick={() => handleVotingModeChange('single')}
+            className={`w-full flex items-start gap-3 p-4 rounded-xl border-2 transition-all text-start ${
+              votingMode === 'single'
+                ? 'border-[#0ca7aa] bg-[#0ca7aa]/5'
+                : 'border-border hover:border-[#0ca7aa]/30'
+            }`}
+          >
+            <div className={`w-5 h-5 rounded-full border-2 mt-0.5 shrink-0 flex items-center justify-center ${
+              votingMode === 'single' ? 'border-[#0ca7aa]' : 'border-muted-foreground/30'
+            }`}>
+              {votingMode === 'single' && <div className="w-2.5 h-2.5 rounded-full bg-[#0ca7aa]" />}
+            </div>
+            <div>
+              <p className="font-semibold flex items-center gap-2">
+                <span>1️⃣</span>
+                {language === 'he' ? 'הצבעה בודדת' : 'تصويت فردي'}
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                {language === 'he'
+                  ? 'כל מצביע יכול לבחור פוסטר אחד בלבד מכל הקטגוריות. הצבעה אחת לכל התחרות.'
+                  : 'يمكن لكل مصوت اختيار ملصق واحد فقط من جميع الفئات. تصويت واحد لكل المسابقة.'}
+              </p>
+            </div>
+          </button>
+
+          {/* אפשרות 2: לפי קטגוריה */}
+          <button
+            onClick={() => handleVotingModeChange('per_category')}
+            className={`w-full flex items-start gap-3 p-4 rounded-xl border-2 transition-all text-start ${
+              votingMode === 'per_category'
+                ? 'border-[#0ca7aa] bg-[#0ca7aa]/5'
+                : 'border-border hover:border-[#0ca7aa]/30'
+            }`}
+          >
+            <div className={`w-5 h-5 rounded-full border-2 mt-0.5 shrink-0 flex items-center justify-center ${
+              votingMode === 'per_category' ? 'border-[#0ca7aa]' : 'border-muted-foreground/30'
+            }`}>
+              {votingMode === 'per_category' && <div className="w-2.5 h-2.5 rounded-full bg-[#0ca7aa]" />}
+            </div>
+            <div>
+              <p className="font-semibold flex items-center gap-2">
+                <span>📑</span>
+                {language === 'he' ? 'הצבעה לפי קטגוריה' : 'تصويت حسب الفئة'}
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                {language === 'he'
+                  ? 'כל מצביע יכול להצביע פעם אחת בכל קטגוריה. לדוגמה: הצבעה אחת ב"סובלנות" והצבעה אחת ב"איכות הסביבה".'
+                  : 'يمكن لكل مصوت التصويت مرة واحدة في كل فئة. مثال: تصويت واحد في "التسامح" وتصويت واحد في "جودة البيئة".'}
+              </p>
+            </div>
+          </button>
+
+          {/* מצב נוכחי */}
+          <div className="flex items-center gap-2 pt-2">
+            <Badge className={votingMode === 'single' ? 'bg-purple-500' : 'bg-[#0ca7aa]'} variant="secondary">
+              {votingMode === 'single'
+                ? (language === 'he' ? '✓ הצבעה בודדת' : '✓ تصويت فردي')
+                : (language === 'he' ? '✓ לפי קטגוריה' : '✓ حسب الفئة')}
+            </Badge>
           </div>
         </CardContent>
       </Card>

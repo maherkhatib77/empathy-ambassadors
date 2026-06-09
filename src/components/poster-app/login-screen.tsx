@@ -1,5 +1,5 @@
 // ===================================================================
-// LoginScreen - מסך כניסה למערכת
+// LoginScreen - מסך כניסה למערכת (ללא מידע דמו)
 // ===================================================================
 
 'use client';
@@ -66,9 +66,7 @@ export function LoginScreen() {
           <CardHeader className="text-center pb-2">
             <CardTitle className="text-xl">{t('login_title')}</CardTitle>
             <CardDescription>
-              {language === 'he'
-                ? 'הזן תעודת הזהות שלך (לדוגמה: 1001)'
-                : 'أدخل رقم هويتك (مثال: 1001)'}
+              {t('login_subtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -97,31 +95,14 @@ export function LoginScreen() {
               {t('login_button')}
             </Button>
 
-            {/* קישור לניהול */}
+            {/* קישור לניהול - דיסקרטי */}
             <button
               onClick={goToAdmin}
-              className="w-full flex items-center justify-center gap-2 text-muted-foreground hover:text-[#0ca7aa] transition-colors duration-200 py-2 text-sm"
+              className="w-full flex items-center justify-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors py-2 text-xs"
             >
-              <ShieldCheck className="w-4 h-4" />
+              <ShieldCheck className="w-3.5 h-3.5" />
               {t('nav_admin')}
             </button>
-
-            {/* מידע לדמו */}
-            <div className="mt-4 p-3 bg-muted/50 rounded-lg text-xs text-muted-foreground text-center space-y-1">
-              <p className="font-semibold">
-                {language === 'he' ? '🔑 מזהי דמו:' : '🔑 معرفات تجريبية:'}
-              </p>
-              <p>
-                {language === 'he'
-                  ? 'תלמידים: 1001-1008 | הורים: 2001-2004'
-                  : 'طلاب: 1001-1008 | أولياء أمور: 2001-2004'}
-              </p>
-              <p>
-                {language === 'he'
-                  ? 'סיסמת מנהל: admin123'
-                  : 'كلمة مرور المدير: admin123'}
-              </p>
-            </div>
           </CardContent>
         </Card>
       </div>

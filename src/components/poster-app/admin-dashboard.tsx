@@ -1,5 +1,5 @@
 // ===================================================================
-// AdminDashboard - לוח ניהול ראשי
+// AdminDashboard - לוח ניהול ראשי עם סטטיסטיקות מלאות
 // ===================================================================
 
 'use client';
@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useAppStore } from '@/store/app-store';
-import { DataManager } from '@/lib/data-manager';
+import { DataManager, type VotingMode } from '@/lib/data-manager';
 import {
   FileImage,
   Clock,
@@ -20,6 +20,9 @@ import {
   Trash2,
   LogOut,
   BadgeCheck,
+  Users,
+  GraduationCap,
+  UserCheck,
 } from 'lucide-react';
 
 export function AdminDashboard() {
@@ -43,12 +46,12 @@ export function AdminDashboard() {
 
     if (window.confirm(msg)) {
       DataManager.resetSystem();
-      refreshStats();
+      setStats(DataManager.getStats());
     }
   };
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="p-4 space-y-6 max-w-4xl mx-auto">
       {/* כותרת */}
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
@@ -70,18 +73,34 @@ export function AdminDashboard() {
         </Button>
       </div>
 
-      {/* כרטיסיות סטטיסטיקות */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <Card className="border-l-4 border-l-[#e67e22]">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#e67e22]/10 flex items-center justify-center">
-                <Clock className="w-5 h-5 text-[#e67e22]" />
+      {/* כרטיסיות סטטיסטיקות - משתמשים */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <Card className="border-l-4 border-l-[#0ca7aa]">
+          <CardContent className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-[#0ca7aa]/10 flex items-center justify-center">
+                <Users className="w-4 h-4 text-[#0ca7aa]" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{stats.pendingSubmissions}</p>
+                <p className="text-xl font-bold">{stats.totalUsers}</p>
                 <p className="text-xs text-muted-foreground">
-                  {language === 'he' ? 'ממתינות' : 'معلقة'}
+                  {language === 'he' ? 'סה״כ משתמשים' : 'إجمالي المستخدمين'}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-l-4 border-l-[#e67e22]">
+          <CardContent className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-[#e67e22]/10 flex items-center justify-center">
+                <GraduationCap className="w-4 h-4 text-[#e67e22]" />
+              </div>
+              <div>
+                <p className="text-xl font-bold">{stats.totalStudents}</p>
+                <p className="text-xs text-muted-foreground">
+                  {language === 'he' ? 'תלמידים' : 'طلاب'}
                 </p>
               </div>
             </div>
@@ -89,13 +108,13 @@ export function AdminDashboard() {
         </Card>
 
         <Card className="border-l-4 border-l-green-500">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                <CheckCircle className="w-5 h-5 text-green-500" />
+          <CardContent className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center">
+                <CheckCircle className="w-4 h-4 text-green-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{stats.approvedSubmissions}</p>
+                <p className="text-xl font-bold">{stats.approvedSubmissions}</p>
                 <p className="text-xs text-muted-foreground">
                   {language === 'he' ? 'מאושרות' : 'مقبولة'}
                 </p>
@@ -104,14 +123,49 @@ export function AdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="border-l-4 border-l-red-500">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                <XCircle className="w-5 h-5 text-red-500" />
+        <Card className="border-l-4 border-l-blue-500">
+          <CardContent className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center">
+                <Vote className="w-4 h-4 text-blue-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{stats.rejectedSubmissions}</p>
+                <p className="text-xl font-bold">{stats.totalVotes}</p>
+                <p className="text-xs text-muted-foreground">
+                  {language === 'he' ? 'הצבעות' : 'تصويتات'}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* הגשות ממתינות */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <Card className="border-l-4 border-l-[#e67e22]">
+          <CardContent className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-[#e67e22]/10 flex items-center justify-center">
+                <Clock className="w-4 h-4 text-[#e67e22]" />
+              </div>
+              <div>
+                <p className="text-xl font-bold">{stats.pendingSubmissions}</p>
+                <p className="text-xs text-muted-foreground">
+                  {language === 'he' ? 'ממתינות' : 'معلقة'}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-l-4 border-l-red-500">
+          <CardContent className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-red-100 flex items-center justify-center">
+                <XCircle className="w-4 h-4 text-red-500" />
+              </div>
+              <div>
+                <p className="text-xl font-bold">{stats.rejectedSubmissions}</p>
                 <p className="text-xs text-muted-foreground">
                   {language === 'he' ? 'נדחו' : 'مرفوضة'}
                 </p>
@@ -120,16 +174,16 @@ export function AdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="border-l-4 border-l-blue-500">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                <Vote className="w-5 h-5 text-blue-500" />
+        <Card className="border-l-4 border-l-purple-500">
+          <CardContent className="p-3">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-purple-100 flex items-center justify-center">
+                <UserCheck className="w-4 h-4 text-purple-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{stats.totalVotes}</p>
+                <p className="text-xl font-bold">{stats.totalParents}</p>
                 <p className="text-xs text-muted-foreground">
-                  {language === 'he' ? 'הצבעות' : 'تصويتات'}
+                  {language === 'he' ? 'הורים' : 'أولياء أمور'}
                 </p>
               </div>
             </div>
@@ -163,6 +217,11 @@ export function AdminDashboard() {
               ? `הצבעה: ${stats.votingOpen ? 'פתוחה' : 'סגורה'}`
               : `التصويت: ${stats.votingOpen ? 'مفتوح' : 'مغلق'}`}
           </Badge>
+          <Badge variant="secondary">
+            {language === 'he'
+              ? `מצב: ${stats.votingMode === 'single' ? 'הצבעה בודדת' : 'לפי קטגוריה'}`
+              : `الوضع: ${stats.votingMode === 'single' ? 'فردي' : 'حسب الفئة'}`}
+          </Badge>
         </CardContent>
       </Card>
 
@@ -179,7 +238,9 @@ export function AdminDashboard() {
             <h3 className="font-semibold text-center">
               {language === 'he' ? 'ניהול הגשות' : 'إدارة التقديمات'}
             </h3>
-            <Badge variant="secondary">{stats.pendingSubmissions} {language === 'he' ? 'ממתינות' : 'معلقة'}</Badge>
+            {stats.pendingSubmissions > 0 && (
+              <Badge variant="secondary">{stats.pendingSubmissions} {language === 'he' ? 'ממתינות' : 'معلقة'}</Badge>
+            )}
           </CardContent>
         </Card>
 
@@ -208,6 +269,11 @@ export function AdminDashboard() {
             <h3 className="font-semibold text-center text-red-600">
               {language === 'he' ? 'איפוס מערכת' : 'إعادة تعيين النظام'}
             </h3>
+            <p className="text-xs text-muted-foreground text-center">
+              {language === 'he'
+                ? 'מחיקת הגשות והצבעות'
+                : 'حذف التقديمات والتصويتات'}
+            </p>
           </CardContent>
         </Card>
       </div>

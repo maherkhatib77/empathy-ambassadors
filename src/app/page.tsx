@@ -4,7 +4,7 @@
 
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAppStore, type AppView } from '@/store/app-store';
 import { DataManager } from '@/lib/data-manager';
 import { AppHeader } from '@/components/poster-app/app-header';
@@ -46,16 +46,68 @@ export default function Home() {
   const currentView = useAppStore((s) => s.currentView);
   const initialized = useAppStore((s) => s.initialized);
   const setInitialized = useAppStore((s) => s.setInitialized);
+  const refreshSettings = useAppStore((s) => s.refreshSettings);
 
-  // ---- אתחול נתונים ב-localStorage ----
+  // Ref-based loading to avoid setState-in-effect
+  const loadingRef = useRef(true);
+  const [loading, setLoading] = useState(true);
+
+  // ---- אתחול ----
   useEffect(() => {
-    if (!initialized) {
-      DataManager.initData();
-      setInitialized(true);
-    }
-  }, [initialized, setInitialized]);
+    let cancelled = false;
 
-  const isAdminScreen = currentView === 'admin-login' || currentView.startsWith('admin-');
+    async function init() {
+      if (typeof window === 'undefined') return;
+
+      // שמירת הגדרות ברירת מחדל אם לא קיימות
+      DataManager.initDefaults();
+
+      // טעינת משתמשים מה-Excel (אם עדיין לא נטענו)
+      if (!DataManager.isUsersLoaded()) {
+        await DataManager.loadUsersFromAPI();
+      }
+
+      // רענון הגדרות
+      refreshSettings();
+      setInitialized(true);
+
+      if (!cancelled) {
+        loadingRef.current = false;
+        setLoading(false);
+      }
+    }
+
+    if (!initialized) {
+      init();
+    } else {
+      // Use setTimeout to avoid synchronous setState in effect
+      setTimeout(() => {
+        loadingRef.current = false;
+        setLoading(false);
+      }, 0);
+    }
+
+    return () => { cancelled = true; };
+  }, []);
+
+  // מסך טעינה
+  if (loading || !initialized) {
+    return (
+      <div
+        dir="rtl"
+        className="min-h-screen flex flex-col items-center justify-center bg-background"
+      >
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0ca7aa]/10">
+            <span className="text-3xl animate-bounce">🤝</span>
+          </div>
+          <p className="text-muted-foreground text-lg">
+            {language === 'he' ? 'טוען...' : 'جارٍ التحميل...'}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

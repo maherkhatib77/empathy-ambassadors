@@ -30,12 +30,17 @@ export interface Vote {
   id: string;
   voter_id: string;
   submission_id: string;
+  category: string;
   timestamp: number;
 }
+
+// מצב הצבעה: 'single' = הצבעה אחת לכל הקטגוריות, 'per_category' = הצבעה בכל קטגוריה
+export type VotingMode = 'single' | 'per_category';
 
 export interface Settings {
   voting_open: boolean;
   submission_open: boolean;
+  voting_mode: VotingMode;
   categories: {
     he: string[];
     ar: string[];
@@ -46,27 +51,12 @@ export interface Settings {
   };
 }
 
-// ---- נתוני דמה ראשוניים ----
-
-const DEFAULT_USERS: User[] = [
-  { id: '1001', name: 'יוסי כהן', role: 'student', class: 'ט\'3', submitted_flag: false, voted_flag: false },
-  { id: '1002', name: 'מרים אחמד', role: 'student', class: 'ט\'2', submitted_flag: false, voted_flag: false },
-  { id: '1003', name: 'דוד לוי', role: 'student', class: 'י\'1', submitted_flag: false, voted_flag: false },
-  { id: '1004', name: 'סארה חסן', role: 'student', class: 'י\'2', submitted_flag: false, voted_flag: false },
-  { id: '1005', name: 'אורי יעקב', role: 'student', class: 'ט\'1', submitted_flag: false, voted_flag: false },
-  { id: '1006', name: 'נור עלי', role: 'student', class: 'י\'3', submitted_flag: false, voted_flag: false },
-  { id: '1007', name: 'רון אברהם', role: 'student', class: 'ט\'4', submitted_flag: false, voted_flag: false },
-  { id: '1008', name: 'לין מוסא', role: 'student', class: 'ט\'3', submitted_flag: false, voted_flag: false },
-  // הורים
-  { id: '2001', name: 'רחל כהן', role: 'parent', class: 'ט\'3', submitted_flag: false, voted_flag: false },
-  { id: '2002', name: 'אחמד חסן', role: 'parent', class: 'ט\'2', submitted_flag: false, voted_flag: false },
-  { id: '2003', name: 'שמעון לוי', role: 'parent', class: 'י\'1', submitted_flag: false, voted_flag: false },
-  { id: '2004', name: 'פאטמה עלי', role: 'parent', class: 'י\'2', submitted_flag: false, voted_flag: false },
-];
+// ---- הגדרות ברירת מחדל ----
 
 export const DEFAULT_SETTINGS: Settings = {
   voting_open: true,
   submission_open: true,
+  voting_mode: 'per_category',
   categories: {
     he: ['בריות וחברה', 'איכות הסביבה', 'סובלנות ושיתוף פעולה', 'כבוד ומנהיגות', 'מניעת אלימות', 'חינוך מיני'],
     ar: ['المجتمع والروابط الاجتماعية', 'جودة البيئة', 'التسامح والتعاون', 'الاحترام والقيادة', 'منع العنف', 'التربية الجنسية'],
@@ -76,9 +66,10 @@ export const DEFAULT_SETTINGS: Settings = {
       site_title: 'שגרירי האמפתיה',
       site_subtitle: 'תחרות פוסטרים בית ספרית',
       login_title: 'כניסה למערכת',
-      login_placeholder: 'הזן תעודת זהות',
+      login_subtitle: 'הזן תעודת זהות (ת\"ז) לכניסה',
+      login_placeholder: 'תעודת זהות (ת\"ז)',
       login_button: 'היכנס',
-      login_error: 'תעודת זהות לא נמצאה במערכת',
+      login_error: 'תעודת הזהות לא נמצאה במערכת. פנה למנהל.',
       submit_title: 'הגשת פוסטר',
       submit_category: 'בחר קטגוריה',
       submit_image: 'העלה תמונה (JPG, PNG)',
@@ -93,6 +84,7 @@ export const DEFAULT_SETTINGS: Settings = {
       vote_success: 'ההצבעה נרשמה בהצלחה!',
       vote_error_own: 'לא ניתן להצביע לפוסטר שלך!',
       vote_error_double: 'כבר הצבעת!',
+      vote_error_category_double: 'כבר הצבעת בקטגוריה זו!',
       vote_error_closed: 'ההצבעה סגורה כרגע.',
       nav_submit: 'הגשת פוסטר',
       nav_gallery: 'גלריה',
@@ -108,14 +100,20 @@ export const DEFAULT_SETTINGS: Settings = {
       category_label: 'קטגוריה',
       votes_count: 'הצבעות',
       change_image: 'שנה תמונה',
+      voting_mode_single: 'הצבעה בודדת (פוסטר אחד מכל הקטגוריות)',
+      voting_mode_per_category: 'הצבעה לפי קטגוריה (הצבעה בכל קטגוריה)',
+      voting_mode_label: 'מצב הצבעה',
+      users_loaded: 'המשתמשים נטענו בהצלחה',
+      users_error: 'שגיאה בטעינת המשתמשים',
     },
     ar: {
       site_title: 'سفراء التعاطف',
       site_subtitle: 'مسابقة ملصقات مدرسية',
       login_title: 'تسجيل الدخول',
-      login_placeholder: 'أدخل رقم الهوية',
+      login_subtitle: 'أدخل رقم الهوية للدخول',
+      login_placeholder: 'رقم الهوية',
       login_button: 'دخول',
-      login_error: 'رقم الهوية غير موجود في النظام',
+      login_error: 'رقم الهوية غير موجود في النظام. تواصل مع المسؤول.',
       submit_title: 'تقديم ملصق',
       submit_category: 'اختر الفئة',
       submit_image: 'ارفع صورة (JPG, PNG)',
@@ -130,6 +128,7 @@ export const DEFAULT_SETTINGS: Settings = {
       vote_success: 'تم تسجيل التصويت بنجاح!',
       vote_error_own: 'لا يمكنك التصويت لملصقك!',
       vote_error_double: 'لقد صوتت بالفعل!',
+      vote_error_category_double: 'لقد صوتت بالفعل في هذه الفئة!',
       vote_error_closed: 'التصويت مغلق حاليًا.',
       nav_submit: 'تقديم ملصق',
       nav_gallery: 'المعرض',
@@ -145,6 +144,11 @@ export const DEFAULT_SETTINGS: Settings = {
       category_label: 'الفئة',
       votes_count: 'أصوات',
       change_image: 'تغيير الصورة',
+      voting_mode_single: 'تصويت فردي (ملصق واحد من جميع الفئات)',
+      voting_mode_per_category: 'تصويت حسب الفئة (تصويت في كل فئة)',
+      voting_mode_label: 'وضع التصويت',
+      users_loaded: 'تم تحميل المستخدمين بنجاح',
+      users_error: 'خطأ في تحميل المستخدمين',
     },
   },
 };
@@ -156,23 +160,69 @@ const KEYS = {
   VOTES: 'empathy_votes',
   SETTINGS: 'empathy_settings',
   INITIALIZED: 'empathy_initialized',
+  USERS_VERSION: 'empathy_users_version',
 };
+
+// גרסת המשתמשים - מתעדכנת כשמייבאים מה-Excel
+const USERS_CURRENT_VERSION = 'excel_import_v1';
 
 // ---- מחלקת DataManager ----
 
 export class DataManager {
-  // ---- אתחול נתונים ----
-  static initData(): void {
+  // ---- אתחול נתונים ברירת מחדל ----
+  static initDefaults(): void {
     if (typeof window === 'undefined') return;
 
     const initialized = localStorage.getItem(KEYS.INITIALIZED);
     if (!initialized) {
-      localStorage.setItem(KEYS.USERS, JSON.stringify(DEFAULT_USERS));
+      localStorage.setItem(KEYS.USERS, JSON.stringify([]));
       localStorage.setItem(KEYS.SUBMISSIONS, JSON.stringify([]));
       localStorage.setItem(KEYS.VOTES, JSON.stringify([]));
       localStorage.setItem(KEYS.SETTINGS, JSON.stringify(DEFAULT_SETTINGS));
       localStorage.setItem(KEYS.INITIALIZED, 'true');
     }
+  }
+
+  // ---- טעינת משתמשים מה-API (Excel) ----
+  static async loadUsersFromAPI(): Promise<{ success: boolean; count: number }> {
+    if (typeof window === 'undefined') return { success: false, count: 0 };
+
+    try {
+      const response = await fetch('/api/import-users');
+      const data = await response.json();
+
+      if (data.success && data.users) {
+        // שמירת המשתמשים הקיימים כדי לא לאבד flags
+        const existingUsers = DataManager.getUsers();
+        const existingFlags = new Map<string, { submitted_flag: boolean; voted_flag: boolean }>();
+        existingUsers.forEach(u => {
+          existingFlags.set(u.id, { submitted_flag: u.submitted_flag, voted_flag: u.voted_flag });
+        });
+
+        // מיזוג: שמירת flags של משתמשים קיימים
+        const mergedUsers = data.users.map((u: User) => {
+          const existing = existingFlags.get(u.id);
+          if (existing) {
+            return { ...u, submitted_flag: existing.submitted_flag, voted_flag: existing.voted_flag };
+          }
+          return u;
+        });
+
+        localStorage.setItem(KEYS.USERS, JSON.stringify(mergedUsers));
+        localStorage.setItem(KEYS.USERS_VERSION, USERS_CURRENT_VERSION);
+        return { success: true, count: mergedUsers.length };
+      }
+      return { success: false, count: 0 };
+    } catch (error) {
+      console.error('Failed to load users from API:', error);
+      return { success: false, count: 0 };
+    }
+  }
+
+  // ---- בדיקה האם המשתמשים נטענו מה-Excel ----
+  static isUsersLoaded(): boolean {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem(KEYS.USERS_VERSION) === USERS_CURRENT_VERSION;
   }
 
   // ---- קריאת נתונים ----
@@ -257,7 +307,9 @@ export class DataManager {
   }
 
   // ---- הצבעה ----
+  // מחזירה: null אם ההצבעה נדחית, או אובייקט Vote אם הצליחה
   static addVote(voterId: string, submissionId: string): Vote | null {
+    const settings = DataManager.getSettings();
     const submissions = DataManager.getSubmissions();
     const submission = submissions.find(s => s.id === submissionId);
 
@@ -267,14 +319,24 @@ export class DataManager {
     // בדיקה שלא מצביעים לעצמם
     if (submission.student_id === voterId) return null;
 
-    // בדיקה שלא הצביעו כבר
     const votes = DataManager.getVotes();
-    if (votes.some(v => v.voter_id === voterId)) return null;
+    const voterVotes = votes.filter(v => v.voter_id === voterId);
+
+    // ---- לוגיקת הצבעה לפי מצב ----
+    if (settings.voting_mode === 'single') {
+      // הצבעה בודדת - הצבעה אחת בלבד לכל הקטגוריות
+      if (voterVotes.length > 0) return null;
+    } else {
+      // הצבעה לפי קטגוריה - הצבעה אחת לכל קטגוריה
+      const alreadyVotedInCategory = voterVotes.some(v => v.category === submission.category);
+      if (alreadyVotedInCategory) return null;
+    }
 
     const newVote: Vote = {
       id: `vote_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       voter_id: voterId,
       submission_id: submissionId,
+      category: submission.category,
       timestamp: Date.now(),
     };
     votes.push(newVote);
@@ -286,9 +348,53 @@ export class DataManager {
     return newVote;
   }
 
+  // ---- בדיקה אם המצביע כבר הצביע לפוסטר מסוים או בקטגוריה ----
+  static canVote(voterId: string, submissionId: string): { can: boolean; reason?: string } {
+    const settings = DataManager.getSettings();
+    const submissions = DataManager.getSubmissions();
+    const submission = submissions.find(s => s.id === submissionId);
+
+    if (!submission || submission.status !== 'approved') {
+      return { can: false, reason: 'invalid' };
+    }
+    if (submission.student_id === voterId) {
+      return { can: false, reason: 'own' };
+    }
+    if (!settings.voting_open) {
+      return { can: false, reason: 'closed' };
+    }
+
+    const votes = DataManager.getVotes();
+    const voterVotes = votes.filter(v => v.voter_id === voterId);
+
+    if (settings.voting_mode === 'single') {
+      if (voterVotes.length > 0) {
+        return { can: false, reason: 'double' };
+      }
+    } else {
+      const alreadyVotedInCategory = voterVotes.some(v => v.category === submission.category);
+      if (alreadyVotedInCategory) {
+        return { can: false, reason: 'category_double' };
+      }
+    }
+
+    return { can: true };
+  }
+
   // ---- ספירת הצבעות לפוסטר ----
   static getVoteCount(submissionId: string): number {
     return DataManager.getVotes().filter(v => v.submission_id === submissionId).length;
+  }
+
+  // ---- ספירת הצבעות של מצביע ----
+  static getVoterVoteCount(voterId: string): number {
+    return DataManager.getVotes().filter(v => v.voter_id === voterId).length;
+  }
+
+  // ---- קטגוריות שבהן המצביע כבר הצביע ----
+  static getVotedCategories(voterId: string): string[] {
+    const votes = DataManager.getVotes().filter(v => v.voter_id === voterId);
+    return [...new Set(votes.map(v => v.category))];
   }
 
   // ---- עדכון הגדרות ----
@@ -303,7 +409,7 @@ export class DataManager {
     localStorage.setItem(KEYS.SUBMISSIONS, JSON.stringify([]));
     localStorage.setItem(KEYS.VOTES, JSON.stringify([]));
 
-    // אפס flags של משתמשים
+    // אפס flags של משתמשים (ללא מחיקת המשתמשים עצמם)
     const users = DataManager.getUsers();
     users.forEach(u => {
       u.submitted_flag = false;
@@ -321,14 +427,19 @@ export class DataManager {
         approvedSubmissions: 0,
         rejectedSubmissions: 0,
         totalVotes: 0,
+        totalUsers: 0,
+        totalStudents: 0,
+        totalParents: 0,
         votingOpen: true,
         submissionOpen: true,
+        votingMode: 'per_category' as VotingMode,
       };
     }
 
     const submissions = DataManager.getSubmissions();
     const votes = DataManager.getVotes();
     const settings = DataManager.getSettings();
+    const users = DataManager.getUsers();
 
     return {
       totalSubmissions: submissions.length,
@@ -336,8 +447,12 @@ export class DataManager {
       approvedSubmissions: submissions.filter(s => s.status === 'approved').length,
       rejectedSubmissions: submissions.filter(s => s.status === 'rejected').length,
       totalVotes: votes.length,
+      totalUsers: users.length,
+      totalStudents: users.filter(u => u.role === 'student').length,
+      totalParents: users.filter(u => u.role === 'parent').length,
       votingOpen: settings.voting_open,
       submissionOpen: settings.submission_open,
+      votingMode: settings.voting_mode,
     };
   }
 

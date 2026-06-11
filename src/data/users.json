@@ -1,0 +1,5266 @@
+[
+  {
+    "id": "226556835",
+    "name": "אבו סביח איאן",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201459807",
+    "name": "ראמי",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300900909",
+    "name": "אימאן",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229633961",
+    "name": "אבראהים גסאן",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33969262",
+    "name": "אוסאמה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203163019",
+    "name": "למא",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226134369",
+    "name": "ג'נאח טליה",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "304878309",
+    "name": "איבראהים",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203081567",
+    "name": "נסים",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343612990",
+    "name": "גאליה אמיר עדי",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300809787",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300642121",
+    "name": "יאסמין",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229634704",
+    "name": "גבר ווטן",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27686211",
+    "name": "חוסאם",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40180630",
+    "name": "נדוה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229305818",
+    "name": "גבריס כיאנאל יוחנא",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301452181",
+    "name": "מאלכ",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301403770",
+    "name": "אמאליה סילה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "228427142",
+    "name": "דאנדיס מינה",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66213042",
+    "name": "חוסאם",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34980417",
+    "name": "מאזן",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "228712253",
+    "name": "זועבי כרמל",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201136231",
+    "name": "היבה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229332622",
+    "name": "מינאסיאן מייקל",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36131860",
+    "name": "סימון",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "80881022",
+    "name": "מירי",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229215876",
+    "name": "מתא מילאד",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29777497",
+    "name": "פאדי",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300259827",
+    "name": "הבה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229633839",
+    "name": "נירוך לין",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "60613064",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302691274",
+    "name": "איה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343645289",
+    "name": "סלאמה נור",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29835444",
+    "name": "בדראן",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37019031",
+    "name": "ארמנוסה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226105633",
+    "name": "סלמאן פאתנה",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33301045",
+    "name": "חאזם",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37814886",
+    "name": "ניהל",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226588275",
+    "name": "עבד אלווהאב כרם",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38686614",
+    "name": "שריף",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "207027616",
+    "name": "יאסמין",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226158749",
+    "name": "עיסא ראסיל",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27551472",
+    "name": "עבד אלוה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34228379",
+    "name": "תאארה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "230058869",
+    "name": "עליאן חאלד",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "311217863",
+    "name": "עיסא",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "318836509",
+    "name": "דניא",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229641394",
+    "name": "עליאן לור",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305629016",
+    "name": "מחמוד",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "209173269",
+    "name": "נוורס",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229302526",
+    "name": "קארמי קריסטיאן",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "81096950",
+    "name": "ניסים",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66185919",
+    "name": "נינה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229662820",
+    "name": "קורד דיאנה",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "200970333",
+    "name": "יחיא",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302916598",
+    "name": "דוניה",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229317565",
+    "name": "שיחה אייאן",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86044104",
+    "name": "מחמד",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "43549740",
+    "name": "זינב",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229644125",
+    "name": "שרקיה לארין",
+    "role": "student",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39749593",
+    "name": "גמיל",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302953633",
+    "name": "אילאן",
+    "role": "parent",
+    "class": "א' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343803730",
+    "name": "אבו נגמה האני",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300191541",
+    "name": "היית'ם",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342376449",
+    "name": "היתם",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "230056053",
+    "name": "אברהים רתיל",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "62847173",
+    "name": "תעריד",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343618773",
+    "name": "אבשטין הדר",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34545574",
+    "name": "מיכאל",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342475720",
+    "name": "פרנצ'סקה אביגיל",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342994316",
+    "name": "אוחיון שחר",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "52808409",
+    "name": "תומר",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343665097",
+    "name": "אטראד סרי",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36430296",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301725008",
+    "name": "לילא",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229308077",
+    "name": "בייקר סופיה מירה",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "336407507",
+    "name": "רבקה לאה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "347574261",
+    "name": "בריודין לב",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "347574246",
+    "name": "דמיטרי",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "347574253",
+    "name": "דריה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226323483",
+    "name": "דקידק נטלי",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66178435",
+    "name": "צפוות",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "317115764",
+    "name": "גלינה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229721311",
+    "name": "הרטמן ליאל עדי",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "336448154",
+    "name": "גרנט",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342494424",
+    "name": "לנה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343856449",
+    "name": "חגאז סמיר",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "411351885",
+    "name": "פאדי",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229600739",
+    "name": "חוסיין ריאן",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40649758",
+    "name": "מוסטפא",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300785573",
+    "name": "אנואר",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "230059461",
+    "name": "מסלמאני גוליה",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86078516",
+    "name": "עמאד",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "308057025",
+    "name": "אימאן",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226324895",
+    "name": "נינבורג ארטמי",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "323544635",
+    "name": "ארטמי",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341284776",
+    "name": "אולגה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229696125",
+    "name": "סלאמה סמא",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36171551",
+    "name": "רמי",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201595931",
+    "name": "סנאא",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229214622",
+    "name": "סלמאן יוסף",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301711768",
+    "name": "מוריס",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302904321",
+    "name": "דימה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226623460",
+    "name": "עופרן אייל מנדל",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "32289076",
+    "name": "אסתר חגי",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "13936273",
+    "name": "נעמה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229641386",
+    "name": "עליאן חור",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226141166",
+    "name": "עליאן תולאי",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "308079839",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "208507962",
+    "name": "דליה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "227030368",
+    "name": "עלייאן אראם",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301770731",
+    "name": "איברהים",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "204070155",
+    "name": "אינאס",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "229908645",
+    "name": "עשאייר ינאל",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300415809",
+    "name": "סאאיד",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "312384381",
+    "name": "יאמן",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "230285306",
+    "name": "קריקסונוב אריאדנה",
+    "role": "student",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66730821",
+    "name": "דוד",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "6317603",
+    "name": "אנסטסיה",
+    "role": "parent",
+    "class": "א' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344641360",
+    "name": "אבו בכר לים",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40088130",
+    "name": "בשיר",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40943466",
+    "name": "פאתינה",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344641071",
+    "name": "אלבידק גוואד",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "314994179",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "207741448",
+    "name": "גוואד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344522180",
+    "name": "אליאן לית",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21674734",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300901659",
+    "name": "זינב",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344572789",
+    "name": "אלסעד אילן",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201045747",
+    "name": "ינאל",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86097359",
+    "name": "אילן",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344748538",
+    "name": "אנדראוס טינה",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "65932287",
+    "name": "יוסץ גוזיף",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305310252",
+    "name": "נאיה",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226974020",
+    "name": "גברין כרם",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39740246",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39282256",
+    "name": "מנאר",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344543475",
+    "name": "חוסיין קיאן",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344495353",
+    "name": "חוסין ג'ורי",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305271462",
+    "name": "רואד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203894910",
+    "name": "גורי",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226643179",
+    "name": "טראירה וורד",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203162003",
+    "name": "נדאל",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343850798",
+    "name": "מוג'רבי רכאן",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "80827983",
+    "name": "מוהאב",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86095205",
+    "name": "רכאן",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344534508",
+    "name": "מסלמאני אדיב",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86078508",
+    "name": "חאתם",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301772810",
+    "name": "סוהה",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344532767",
+    "name": "סובחי מילא",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26620278",
+    "name": "מחמד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39985510",
+    "name": "חנאן",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226977379",
+    "name": "סוייד אילנא",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34644674",
+    "name": "סאפי",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36872059",
+    "name": "מריאנה",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226354546",
+    "name": "סורי כינאן",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34687145",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86991429",
+    "name": "רואן",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344754015",
+    "name": "סמאר ליא",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37225323",
+    "name": "שאדי",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36847556",
+    "name": "ליה",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342977923",
+    "name": "סמרי ג'ורי",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201287281",
+    "name": "תמאם",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344568365",
+    "name": "עוואודה מרים",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "307972117",
+    "name": "חמזה",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "327038790",
+    "name": "לאה",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343357117",
+    "name": "עותמאן אילא",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86930039",
+    "name": "יזן",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203361241",
+    "name": "אילא",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344641303",
+    "name": "עותמאן נאדר",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86047479",
+    "name": "עודי",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300495066",
+    "name": "נאדר",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226367753",
+    "name": "עליאן אילול",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86918919",
+    "name": "עודיי",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "204203863",
+    "name": "אילול",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226328938",
+    "name": "עליאן מוסא",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305656779",
+    "name": "באסל",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "311509012",
+    "name": "מוסא",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226975316",
+    "name": "עשאייר שניר",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226322873",
+    "name": "עתאמלה מאסה",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "32885618",
+    "name": "ח'אלד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "60614229",
+    "name": "מיסאא",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344568449",
+    "name": "שגרי ג'וד",
+    "role": "student",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301621736",
+    "name": "אמגד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201496411",
+    "name": "גו'ד",
+    "role": "parent",
+    "class": "ב' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344530928",
+    "name": "אפטר שטין כליל",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38087441",
+    "name": "אבי",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "32584922",
+    "name": "עדי",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344539986",
+    "name": "ארנהלט סמנתה מאי",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "317055184",
+    "name": "יואב",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "328606702",
+    "name": "סמנתה מאי",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343855540",
+    "name": "בוגה אמיר",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "81009334",
+    "name": "עלא אדין",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342704525",
+    "name": "אמיר",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "227232170",
+    "name": "בכרי ניזאר",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34061689",
+    "name": "ממדוח",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "41947755",
+    "name": "רנא",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344855051",
+    "name": "בן-שלג זיו לילה",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "326900404",
+    "name": "אברהם לב",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "332697259",
+    "name": "אליענה מלכה",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344520598",
+    "name": "ג'אדאללה ג'אד",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "80757230",
+    "name": "איהאב",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "32804551",
+    "name": "ג'אד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343551354",
+    "name": "גבריס אמאליה סילה",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341434082",
+    "name": "הרטמן יוסף נורמן",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226580694",
+    "name": "ורשבסקי מאי",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "17878984",
+    "name": "נתנאל",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21926803",
+    "name": "צרויה",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226260065",
+    "name": "חגאזי סלאח סהר",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203250147",
+    "name": "טל",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "212164651",
+    "name": "סלאח סהר",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344542063",
+    "name": "חטאב גורי",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301589818",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305629180",
+    "name": "פדא",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226633220",
+    "name": "יוסף לור",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21347984",
+    "name": "פאדי",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "25851874",
+    "name": "שאדן",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226313914",
+    "name": "כטיב ריתאל",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305705402",
+    "name": "רידא",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "312249766",
+    "name": "ריתאל",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344540166",
+    "name": "לאור תמרה",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66388463",
+    "name": "דוד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "337687065",
+    "name": "תמרה",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226599116",
+    "name": "מוהנא נור",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301616835",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "200765485",
+    "name": "אמאני",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "227202371",
+    "name": "סלימאן יוסף",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "25836438",
+    "name": "סאמר",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26568691",
+    "name": "מאי",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "227217924",
+    "name": "ספאפי תיים",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86034790",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "206106403",
+    "name": "נור",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344572318",
+    "name": "עאבד פהד",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "32729915",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "308074137",
+    "name": "פהד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226313385",
+    "name": "עליאן לייה",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21993316",
+    "name": "איברהים",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201647591",
+    "name": "מרים",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "225923069",
+    "name": "קשפרנקו עומר",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301065876",
+    "name": "מומוד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "319399374",
+    "name": "ויקטוריה",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226580660",
+    "name": "שוויקי ראמי",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "308029321",
+    "name": "עומר",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "317845923",
+    "name": "אליזבטה",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "226580561",
+    "name": "שוסטר מאיה",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "941193948",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "312868151",
+    "name": "אלונה",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344520341",
+    "name": "שטיינר מדיסק קדם",
+    "role": "student",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342493343",
+    "name": "טיל מגנוס",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300643236",
+    "name": "קדם",
+    "role": "parent",
+    "class": "ב' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343823563",
+    "name": "אבו עצב אילאן",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302977509",
+    "name": "מחמד",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343265633",
+    "name": "אלדרעאוי אמיר",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "331207928",
+    "name": "טארק",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "316100833",
+    "name": "אמיר",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223214727",
+    "name": "אסטפאן אלסה",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301670204",
+    "name": "פאדי",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302656707",
+    "name": "כריסתין",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343272431",
+    "name": "אסמאעיל מחמד",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302833546",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "204259253",
+    "name": "ערין",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223594763",
+    "name": "ג'יג'יני ריאן",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "31424757",
+    "name": "עבד אלרחים",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36040483",
+    "name": "מנאר",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339936783",
+    "name": "גבארה עדי",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "200441137",
+    "name": "סארי",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "200970762",
+    "name": "עדי",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343496329",
+    "name": "ותד חסן",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "28307312",
+    "name": "חוסאם",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36438265",
+    "name": "אנג'י",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343049631",
+    "name": "כנעאן באסל",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39134929",
+    "name": "פאדי",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203583745",
+    "name": "רובא",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343525846",
+    "name": "מוג'רבי קיסר",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66684606",
+    "name": "זהרייה",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224612952",
+    "name": "מריד אווג'",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300290046",
+    "name": "עומייר",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300743366",
+    "name": "אווג'",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224940486",
+    "name": "עאבד תולין",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86084688",
+    "name": "דניאל",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "315641290",
+    "name": "בראאה",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224938977",
+    "name": "עבידאת כמאל",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300203155",
+    "name": "חוסיין",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201601267",
+    "name": "כמאל",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343246088",
+    "name": "עותמאן איאן",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "43422484",
+    "name": "עותמן",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302899026",
+    "name": "הבה",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224938811",
+    "name": "עותמן נביל",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36593002",
+    "name": "עבד",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86059441",
+    "name": "נביל",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343105714",
+    "name": "עזאיזה לארין",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29861317",
+    "name": "עלא",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "60168010",
+    "name": "רואן",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343828729",
+    "name": "עטון עלי",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86913654",
+    "name": "חוסין",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86999323",
+    "name": "דינה",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344548672",
+    "name": "עליאן יארא",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "80864804",
+    "name": "טארק",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86941275",
+    "name": "אומימה",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344407200",
+    "name": "עליאן סלים",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302798780",
+    "name": "עלא",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "308457019",
+    "name": "נסרין",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "225120294",
+    "name": "עשאייר יאמן",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343370763",
+    "name": "שעבאן קנאן",
+    "role": "student",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40996043",
+    "name": "הית'ם",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34710731",
+    "name": "קנאן",
+    "role": "parent",
+    "class": "ג' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "225648716",
+    "name": "אבו ריאש רחיק",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39803895",
+    "name": "מורד",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301223079",
+    "name": "ביאן",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343051991",
+    "name": "אחסין מוחמד",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36990851",
+    "name": "שאדי",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305478729",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338119720",
+    "name": "אליהו גבריאל",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301127254",
+    "name": "יקיר אליה",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342420619",
+    "name": "גבריאל",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "225828862",
+    "name": "אנדראוס נאיה",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223579194",
+    "name": "בגדאדי אלין",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29845401",
+    "name": "ווסאם",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "326939295",
+    "name": "אביטל נטלי",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "225113042",
+    "name": "בייקר סינטיה אווה",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224941096",
+    "name": "ג'מאל זינה",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37322104",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301621595",
+    "name": "נדא",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343490199",
+    "name": "גבריס רונאל",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39407762",
+    "name": "גבריאל",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305280729",
+    "name": "רונאל",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339615684",
+    "name": "גולן שון",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39823240",
+    "name": "קולין אל-נתן",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "345984256",
+    "name": "שון",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "558780441",
+    "name": "גרבר רפאל אילן",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "100004102",
+    "name": "דנובן",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "558534343",
+    "name": "אילנה",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343197265",
+    "name": "דאנדיס מאזן",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "330410879",
+    "name": "ח'טיב אדם",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40932170",
+    "name": "סאמר",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38141404",
+    "name": "فاطمة",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341878197",
+    "name": "חטאב ריאן",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222911679",
+    "name": "ליבוביץ אופק שיר",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38211603",
+    "name": "טל",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "323572578",
+    "name": "בריאנה ר",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343525838",
+    "name": "מוג'רבי קאסם",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344539424",
+    "name": "נירוך נאיה",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340660992",
+    "name": "סלאיימה לורן",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66176447",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "320866544",
+    "name": "יוליה",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "334512274",
+    "name": "עותמן אחמד",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "200965283",
+    "name": "עדי",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302917836",
+    "name": "נאדין",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344548680",
+    "name": "עליאן יסמין",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344547195",
+    "name": "עלייאן חביב",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "301453965",
+    "name": "מונתסר",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "201638111",
+    "name": "חביב",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "559035498",
+    "name": "שלטון יהונתן תומס",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "558430583",
+    "name": "יהושע",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "559252846",
+    "name": "שרה",
+    "role": "parent",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "344412986",
+    "name": "שרקיה אילאן",
+    "role": "student",
+    "class": "ג' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224590109",
+    "name": "אנסארי אוריאן",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "57821233",
+    "name": "אורי",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "35656586",
+    "name": "אנעאם",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224876763",
+    "name": "בן ראובן מאיה",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "24293201",
+    "name": "שרית",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340524255",
+    "name": "בר דנה",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "60837416",
+    "name": "שמיר",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "204652077",
+    "name": "שריהן",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343598223",
+    "name": "ברהום נאי ג'ודי",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27610450",
+    "name": "עלא",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21356506",
+    "name": "רנין",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224699462",
+    "name": "ג'בר האני",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38091039",
+    "name": "פרוק",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "303093231",
+    "name": "קאותר",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224179507",
+    "name": "גטאס עיסא יורי",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40398315",
+    "name": "יעקב",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "322191461",
+    "name": "טטיאנה",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341875169",
+    "name": "דבש תאג' אלדין",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21840574",
+    "name": "ענאן",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37813987",
+    "name": "חנין",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223808197",
+    "name": "דראושה אייהם",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21821533",
+    "name": "פיראס",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39135678",
+    "name": "מיאדה",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224862532",
+    "name": "ח'טיב אראם",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224896027",
+    "name": "ח'ליל כרמן",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "42822700",
+    "name": "מוסטפא",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40766602",
+    "name": "סנא",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224695650",
+    "name": "טראירה גורי",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "317709889",
+    "name": "רשא",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341878593",
+    "name": "מינאסיאן מינאס",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341875441",
+    "name": "סולוביי שליו יהונתן",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "332484625",
+    "name": "דניאל אדוורד",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "306481839",
+    "name": "סבטלאנה",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343145728",
+    "name": "סלמאן שון",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "80800873",
+    "name": "בלאל",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33237256",
+    "name": "סנדרה",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338118359",
+    "name": "סקרה ראם זוראן",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39268966",
+    "name": "יוסף",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342521663",
+    "name": "אלינה",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224896134",
+    "name": "עבדול רחמן ריתאל",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "60172095",
+    "name": "זיאד",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203112560",
+    "name": "ולאא",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339986556",
+    "name": "עווד אללה איה",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36768687",
+    "name": "יונס",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302591227",
+    "name": "מורן",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341781615",
+    "name": "עליאן אחמד",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341737815",
+    "name": "עליאן לוג'אין",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341747301",
+    "name": "עלייאן אחמד",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341445559",
+    "name": "עמלה מילא",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "318314648",
+    "name": "סהאם",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224612119",
+    "name": "פלג בריל שירה",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36496859",
+    "name": "מתן",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "15266489",
+    "name": "שרון",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224576660",
+    "name": "קשפרנקו אליאן",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341714228",
+    "name": "רווידי נטלי",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66189283",
+    "name": "פייסל",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "203236336",
+    "name": "בת אל",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341647998",
+    "name": "שרחה לארין",
+    "role": "student",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34680488",
+    "name": "עבדאלמהדי",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "200527257",
+    "name": "תוריא",
+    "role": "parent",
+    "class": "ד' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340566140",
+    "name": "אבו דויח ינאל",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40419442",
+    "name": "איאס",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "211797576",
+    "name": "דועאא",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339959769",
+    "name": "אבו מוך עאישה",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26194431",
+    "name": "אשרף",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34787549",
+    "name": "היבאת",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223010430",
+    "name": "אבו סביח נאצר",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224871301",
+    "name": "בדראן מלאק",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38689907",
+    "name": "מואיד",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86059615",
+    "name": "הבה",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342012697",
+    "name": "ג'נאח איברהים",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33761230",
+    "name": "מוסה",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "43423078",
+    "name": "יסמין",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342073186",
+    "name": "גאליה מריה לרין",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224697151",
+    "name": "דיואני אלין",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34933762",
+    "name": "סאלח",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40112450",
+    "name": "רבאב",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224858936",
+    "name": "זבקובה אמיר",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "327037412",
+    "name": "אירינה",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341876282",
+    "name": "זג'מוט איזבלה",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40422461",
+    "name": "טארק",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302270194",
+    "name": "אירינה",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341876290",
+    "name": "זג'מוט מיכאלה",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341750917",
+    "name": "זחאיקה מרים",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26407429",
+    "name": "כמאל",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26285395",
+    "name": "אמל",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224894659",
+    "name": "ח'לאילה ג'וד",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39384953",
+    "name": "גו'דת",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34643338",
+    "name": "לובנא",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224888917",
+    "name": "חוסיין פתחי",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223219874",
+    "name": "חמאד אמיר",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "81019721",
+    "name": "فراس",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86005691",
+    "name": "ختام",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "343166310",
+    "name": "טימנצ'יק פור רבקה מרגריטה",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "316944743",
+    "name": "אליהו",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "307469528",
+    "name": "אליזבטה",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221096340",
+    "name": "יוסף לים",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341951549",
+    "name": "לסרי ניקול",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "304934409",
+    "name": "רפאל מימון",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "304942600",
+    "name": "טלי מיטל",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341454445",
+    "name": "מג'אהד עיסא",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66209149",
+    "name": "סאמר",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "86976487",
+    "name": "דינא",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341933190",
+    "name": "מוהנא עומר",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342522877",
+    "name": "מולה היילה איואם",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "328784970",
+    "name": "יוסף",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224037747",
+    "name": "סמרי מוסטפא",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341976355",
+    "name": "עבד סלים",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26182303",
+    "name": "ענאן",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "36432235",
+    "name": "חנאן",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341748481",
+    "name": "עליאן ליליאן",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338120199",
+    "name": "שוויקי סמר",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "32716649",
+    "name": "מדחת",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341975324",
+    "name": "תהילה מעיין",
+    "role": "student",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37270022",
+    "name": "אריאל מאיר",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "317853778",
+    "name": "אנסטסיה",
+    "role": "parent",
+    "class": "ד' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223003153",
+    "name": "אלעברה מג'ד",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39633904",
+    "name": "פאדי",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340730456",
+    "name": "אנסאר הילי נון",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26468777",
+    "name": "אנואר",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "11822988",
+    "name": "שרי",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223101569",
+    "name": "אפטר שטין רמה",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338770266",
+    "name": "בן אברהם דניאל",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "314017443",
+    "name": "יעקב עזר",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223721853",
+    "name": "בן-שלג ליעם גונן",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "335198362",
+    "name": "בר כרם",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224625202",
+    "name": "הוכשטיין יערה רנה",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223112475",
+    "name": "ורשבסקי עדן",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222931560",
+    "name": "חרזאללה שאדי",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "43063577",
+    "name": "את'יר",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "61266599",
+    "name": "אמל",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222909566",
+    "name": "טיבי תאלין",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27560788",
+    "name": "מועתצם",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33588294",
+    "name": "סמאח סעדי",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "342522869",
+    "name": "מולה היילה אדונייס",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223949421",
+    "name": "מסארוה מאריא",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66251687",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66256017",
+    "name": "רנין",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223063801",
+    "name": "נאטור אדם",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34896316",
+    "name": "כאמל",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39483482",
+    "name": "חנין",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223584459",
+    "name": "נסאר תולין",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26397240",
+    "name": "חוסאם",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33989898",
+    "name": "סברין",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339244568",
+    "name": "נעמה עלי",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34709485",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300089471",
+    "name": "דיאנה",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223007998",
+    "name": "סובחי עדן",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341369197",
+    "name": "סורי מוחמד",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223311069",
+    "name": "עוודאללה עבדאלרחמן",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27610484",
+    "name": "מוראד",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21993977",
+    "name": "אמטיסל",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340528769",
+    "name": "עותמן עלי",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224878975",
+    "name": "עליאן וליד",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39475496",
+    "name": "מוסה",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "308412584",
+    "name": "תמרה",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222959785",
+    "name": "עשייר ודיע",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "28388015",
+    "name": "עאדל",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "60840410",
+    "name": "נאנסי",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339289894",
+    "name": "שאמי ארקאן",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27654284",
+    "name": "גמאל",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33301250",
+    "name": "מונירה",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223071465",
+    "name": "שלבי אמין",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66180894",
+    "name": "מחמד",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "200722742",
+    "name": "אלאא",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "558672879",
+    "name": "שלטון יהושע דוד",
+    "role": "student",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "558672895",
+    "name": "יהושע",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "558430575",
+    "name": "שרה",
+    "role": "parent",
+    "class": "ה' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223314808",
+    "name": "אבו דויח עומר",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340536143",
+    "name": "ג'בר אדם",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39759857",
+    "name": "שאדי",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "304927833",
+    "name": "קאותר",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "224871087",
+    "name": "ג'יריס וסים",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37753415",
+    "name": "אמל",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340022078",
+    "name": "ג'מאל עיזאת",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222932634",
+    "name": "גבר מריה",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300680196",
+    "name": "מוסטפא",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305581720",
+    "name": "דועא",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223680422",
+    "name": "גטאס יסמין נינה",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339163537",
+    "name": "דאנדיס זנה",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339586034",
+    "name": "דומיטרסקו מאיה",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27658723",
+    "name": "מישל",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "321159956",
+    "name": "קרמן",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339577264",
+    "name": "זועבי נדא",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "25963042",
+    "name": "מאזן",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223022740",
+    "name": "חוסין עומר",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "80554967",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "81058372",
+    "name": "עליאא",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223221482",
+    "name": "מוגאהד נדין",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "80820517",
+    "name": "יחיא",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "65733594",
+    "name": "שרה",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223224122",
+    "name": "נירוך חוסין",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339966715",
+    "name": "סמאר לים",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338632789",
+    "name": "עבד אל רחמאן ג'זל",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34579185",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39062955",
+    "name": "امل",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223033366",
+    "name": "עבד אלווהאב קנאן",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "341501807",
+    "name": "עבדול רחמן ג'ורי",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40714305",
+    "name": "ניהד",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "60172525",
+    "name": "האיה",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "220564603",
+    "name": "עווד אללה אלין",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340112366",
+    "name": "קעואר ג'ולי",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33971755",
+    "name": "זיאד",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "13765797",
+    "name": "אורנלה",
+    "role": "parent",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340069384",
+    "name": "שוויקי אחמד אליק",
+    "role": "student",
+    "class": "ה' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222704785",
+    "name": "אבו בכר לרין",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339215675",
+    "name": "אבו קטיש פריד",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33229345",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "66514811",
+    "name": "رشا",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339211419",
+    "name": "איברהים זכריה",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27619527",
+    "name": "אקרם",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39472022",
+    "name": "خلود",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222660946",
+    "name": "אסעד שלמא",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34988071",
+    "name": "ראוי",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34786202",
+    "name": "קמר",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339613143",
+    "name": "ג'בר וליד",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38825469",
+    "name": "לואי",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "304930407",
+    "name": "אולפתי",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "558534293",
+    "name": "גרבר ענאל רות",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340401991",
+    "name": "דאנל אסיה אנבל",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "26294439",
+    "name": "סאמר",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "316931609",
+    "name": "רבקה",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "335413720",
+    "name": "ויק בנימין אורי",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "326987138",
+    "name": "עמיאל יו",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "328611413",
+    "name": "שרה דינה",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "219999414",
+    "name": "יוסף סול",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "340686435",
+    "name": "כהן אלבוקרק דולב",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40192874",
+    "name": "יהונתן",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "327269338",
+    "name": "מרים",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221993793",
+    "name": "מוסא כרים",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29776333",
+    "name": "מג'די",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29876497",
+    "name": "רים",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222884694",
+    "name": "מיעארי ג'וד",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34493502",
+    "name": "מואייד",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "65656233",
+    "name": "אונס",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222678807",
+    "name": "מנסור חוסין סני",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29935111",
+    "name": "עדנאן",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37386158",
+    "name": "רנא",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339216632",
+    "name": "מסלמאני מאיה",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222701369",
+    "name": "עואודה ליילק",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "25855453",
+    "name": "אחמד",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33911595",
+    "name": "דינה-ערין",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339554446",
+    "name": "עותמאן נאיה",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40718678",
+    "name": "ראדי",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34726679",
+    "name": "מרווה",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339586471",
+    "name": "עותמאן עומר",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27616135",
+    "name": "רמי",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40620346",
+    "name": "סונה",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221932247",
+    "name": "עיסא רייסן",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338643117",
+    "name": "שיח'ה יאמן",
+    "role": "student",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "39332051",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "302952114",
+    "name": "רזאן",
+    "role": "parent",
+    "class": "ו' - 1",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "223216664",
+    "name": "אבו סביח דיא",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "304917255",
+    "name": "מוחמד",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "300348265",
+    "name": "סנדס",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "335195715",
+    "name": "אטראד עדנאן",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339080723",
+    "name": "איבראהים מוסה",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21982459",
+    "name": "מחמד",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "205370448",
+    "name": "פידא",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338778459",
+    "name": "אספאו אמן",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "328644786",
+    "name": "אלמאיהו",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "336108196",
+    "name": "צאהי",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221753650",
+    "name": "בקלה אליאס",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27676972",
+    "name": "ניקולא",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "25823352",
+    "name": "מרוות",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339130643",
+    "name": "ג'יריס ריאנה",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "25823733",
+    "name": "נשיד",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221918907",
+    "name": "גדעון מרלא",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37176542",
+    "name": "עיסה",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40416083",
+    "name": "סירון",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "337462337",
+    "name": "גואברה ספאי נארין אסתר",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "313705766",
+    "name": "פראס",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "328982970",
+    "name": "ראויה",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "222358053",
+    "name": "הנבוזי נור",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "61252623",
+    "name": "מהראן",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "37791712",
+    "name": "נסרין",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221983869",
+    "name": "חטאב קייס",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221930761",
+    "name": "טראירה גמיל",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338787641",
+    "name": "מונייר אילי",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29156965",
+    "name": "جوهر",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221931603",
+    "name": "מועלם ג'ולי",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "23405020",
+    "name": "עיסא",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29929833",
+    "name": "רונית",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338656515",
+    "name": "מסלמאני מאסה",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339159907",
+    "name": "נירוך אדם",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "27614734",
+    "name": "وليد",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "40196628",
+    "name": "تمارا",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339215113",
+    "name": "סוייד ליאם סוייד",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339243040",
+    "name": "סלמן סינין",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "29959889",
+    "name": "עמאר",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "21399290",
+    "name": "סברין",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339432536",
+    "name": "עטאללה יוסף",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "34868646",
+    "name": "עטאללה",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "33304296",
+    "name": "לינה",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221990310",
+    "name": "עליאן דהוד",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "338644354",
+    "name": "עתאמלה זין אלדין",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "221968001",
+    "name": "פאיניצקי אליזבת",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "313797250",
+    "name": "פטר",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "305921876",
+    "name": "יוליה",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "339467581",
+    "name": "רוטגולץ שחר",
+    "role": "student",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "38617551",
+    "name": "אמיר",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  },
+  {
+    "id": "32408841",
+    "name": "מור",
+    "role": "parent",
+    "class": "ו' - 2",
+    "submitted_flag": false,
+    "voted_flag": false
+  }
+]

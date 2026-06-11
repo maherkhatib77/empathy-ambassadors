@@ -1,18 +1,28 @@
 // ===================================================================
-// API Route - ייבוא תלמידים והורים מקובץ Excel
+// API Route - טעינת תלמידים והורים מקובץ JSON (מבוסס על ה-Excel)
+// הקובץ public/users-data.json נוצר מה-Excel ונכלל בפרויקט
 // ===================================================================
 
 import { NextResponse } from 'next/server';
-import { execSync } from 'child_process';
+import { readFileSync } from 'fs';
 import path from 'path';
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'upload', 'Students_Parents_DB.xlsx');
+    // ניסיון לקרוא מ-public/users-data.json
+    const publicPath = path.join(process.cwd(), 'public', 'users-data.json');
 
-    const pythonScript = `
+    let fileContent: string;
+    try {
+      fileContent = readFileSync(publicPath, 'utf-8');
+    } catch {
+      // fallback ל-upload (לפיתוח מקומי)
+      const uploadPath = path.join(process.cwd(), 'upload', 'Students_Parents_DB.xlsx');
+      const { execSync } = require('child_process');
+
+      const pythonScript = `
 import openpyxl, json, sys
-wb = openpyxl.load_workbook('${filePath}', read_only=True, data_only=True)
+wb = openpyxl.load_workbook('${uploadPath}', read_only=True, data_only=True)
 ws = wb['Students_Parents_DB']
 rows = list(ws.iter_rows(values_only=True))
 users = []
@@ -40,13 +50,14 @@ for row in rows[1:]:
 wb.close()
 sys.stdout.write(json.dumps(users, ensure_ascii=False))
 `;
+      const result = execSync(`python3 -c '${pythonScript.replace(/'/g, "'\\''")}'`, {
+        encoding: 'utf-8',
+        timeout: 15000,
+      });
+      fileContent = result.trim();
+    }
 
-    const result = execSync(`python3 -c '${pythonScript.replace(/'/g, "'\\''")}'`, {
-      encoding: 'utf-8',
-      timeout: 15000,
-    });
-
-    const users = JSON.parse(result.trim());
+    const users = JSON.parse(fileContent);
 
     return NextResponse.json({
       success: true,

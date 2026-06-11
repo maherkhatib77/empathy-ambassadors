@@ -49,3 +49,22 @@ Stage Summary:
 - Demo information completely removed from user-facing pages
 - Admin can see full statistics including user counts
 - Verified: student login with real ID, admin dashboard, settings page with voting mode selector
+
+---
+Task ID: 6
+Agent: Main Developer
+Task: Fix Vercel deployment - users not found on production
+
+Work Log:
+- Diagnosed issue: Excel file in `upload/` folder was gitignored and not available on Vercel
+- Parsed Excel file (265 students, 393 parents = 658 users)
+- Converted Excel data to `public/users-data.json` static file
+- Updated API route `/api/import-users` to read from `public/users-data.json` with fallback to Excel parsing
+- Verified: student login (226556835 - אבו סביח איאן) works correctly
+- Verified: parent login (201459807 - ראמי) works correctly, shows gallery only (no submit option)
+
+Stage Summary:
+- `public/users-data.json` created with 658 users from Excel
+- `src/app/api/import-users/route.ts` updated to read from public folder
+- Users now load correctly on fresh browser (empty localStorage)
+- Ready for git push and Vercel redeployment

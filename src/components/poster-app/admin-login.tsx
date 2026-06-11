@@ -1,5 +1,5 @@
 // ===================================================================
-// AdminLogin - מסך כניסת מנהל
+// AdminLogin - מסך כניסת מנהל (תומך בסיסמה + קודי מנהל משנה)
 // ===================================================================
 
 'use client';
@@ -10,9 +10,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useAppStore } from '@/store/app-store';
 import { useTranslation } from '@/lib/translations';
+import { DataManager } from '@/lib/data-manager';
 import { Lock, ArrowLeft, ShieldCheck } from 'lucide-react';
-
-const ADMIN_PASSWORD = 'admin123';
 
 export function AdminLogin() {
   const [password, setPassword] = useState('');
@@ -24,7 +23,11 @@ export function AdminLogin() {
 
   const handleLogin = () => {
     setError('');
-    if (password === ADMIN_PASSWORD) {
+    if (!password.trim()) {
+      setError(language === 'he' ? 'נא להזין סיסמה' : 'يرجى إدخال كلمة المرور');
+      return;
+    }
+    if (DataManager.verifyAdminPassword(password)) {
       setAdminLoggedIn(true);
       setCurrentView('admin-dashboard');
     } else {
@@ -69,7 +72,7 @@ export function AdminLogin() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={language === 'he' ? 'סיסמה' : 'كلمة المرور'}
+                placeholder={language === 'he' ? 'סיסמה / קוד מנהל' : 'كلمة المرور / رمز المسؤول'}
                 className={`${language === 'he' ? 'pr-10' : 'pl-10'} h-12 text-lg`}
                 autoFocus
               />

@@ -74,14 +74,14 @@ export function AdminReports() {
   }, [approvedSubmissions, votes]);
 
   // ---- נתוני דוח השתתפות ----
-  const participationData = useMemo(() => {
+  const participationData = (() => {
     const studentIds = new Set(students.map(s => s.id));
     const voterIds = new Set(votes.filter(v => studentIds.has(v.voter_id)).map(v => v.voter_id));
 
     // קיבוץ לפי כיתה
     const classMap = new Map<string, { total: number; voted: number; names: string[] }>();
     students.forEach(s => {
-      const cls = s.class || (language === 'he' ? 'ללא כיתה' : 'بدون صف');
+      const cls = s.class || t('report_no_class');
       const existing = classMap.get(cls) || { total: 0, voted: 0, names: [] };
       existing.total++;
       if (voterIds.has(s.id)) {
@@ -112,7 +112,7 @@ export function AdminReports() {
       totalStudents: students.length,
       overallRate: students.length > 0 ? Math.round((voterIds.size / students.length) * 100) : 0,
     };
-  }, [votes, students, language]);
+  })();
 
   const handlePrint = () => {
     window.print();

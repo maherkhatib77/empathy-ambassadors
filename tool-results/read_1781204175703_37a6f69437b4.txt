@@ -1,0 +1,594 @@
+     1→// ===================================================================
+     2→// AdminReports - דוחות מנהל: הגשות, הצבעות, השתתפות
+     3→// ===================================================================
+     4→
+     5→'use client';
+     6→
+     7→import { useState, useEffect, useMemo } from 'react';
+     8→import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+     9→import { Button } from '@/components/ui/button';
+    10→import { Badge } from '@/components/ui/badge';
+    11→import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+    12→import { useAppStore } from '@/store/app-store';
+    13→import { useTranslation } from '@/lib/translations';
+    14→import { DataManager, type User, type Submission, type Vote } from '@/lib/data-manager';
+    15→import {
+    16→  ArrowRight,
+    17→  FileImage,
+    18→  BarChart3,
+    19→  Users,
+    20→  Printer,
+    21→  TrendingUp,
+    22→  Trophy,
+    23→  Image as ImageIcon,
+    24→} from 'lucide-react';
+    25→import {
+    26→  BarChart,
+    27→  Bar,
+    28→  XAxis,
+    29→  YAxis,
+    30→  CartesianGrid,
+    31→  Tooltip,
+    32→  Legend,
+    33→  ResponsiveContainer,
+    34→  PieChart,
+    35→  Pie,
+    36→  Cell,
+    37→} from 'recharts';
+    38→
+    39→type ReportTab = 'submissions' | 'votes' | 'participation';
+    40→
+    41→const COLORS = ['#0ca7aa', '#e67e22', '#e74c3c', '#9b59b6', '#3498db', '#2ecc71', '#f1c40f', '#1abc9c'];
+    42→
+    43→export function AdminReports() {
+    44→  const [activeTab, setActiveTab] = useState<ReportTab>('submissions');
+    45→  const language = useAppStore((s) => s.language);
+    46→  const { t, getCategoryInOtherLang } = useTranslation();
+    47→  const setCurrentView = useAppStore((s) => s.setCurrentView);
+    48→
+    49→  const [submissions, setSubmissions] = useState<Submission[]>(() => DataManager.getSubmissions());
+    50→  const [votes, setVotes] = useState<Vote[]>(() => DataManager.getVotes());
+    51→  const [users, setUsers] = useState<User[]>(() => DataManager.getUsers());
+    52→
+    53→  useEffect(() => {
+    54→    const interval = setInterval(() => {
+    55→      setSubmissions(DataManager.getSubmissions());
+    56→      setVotes(DataManager.getVotes());
+    57→      setUsers(DataManager.getUsers());
+    58→    }, 3000);
+    59→    return () => clearInterval(interval);
+    60→  }, []);
+    61→
+    62→  const students = useMemo(() => users.filter(u => u.role === 'student'), [users]);
+    63→  const approvedSubmissions = useMemo(() => submissions.filter(s => s.status === 'approved'), [submissions]);
+    64→
+    65→  // ---- נתוני דוח הצבעות ----
+    66→  const votesPerPoster = useMemo(() => {
+    67→    return approvedSubmissions
+    68→      .map(s => ({
+    69→        ...s,
+    70→        voteCount: votes.filter(v => v.submission_id === s.id).length,
+    71→      }))
+    72→      .sort((a, b) => b.voteCount - a.voteCount)
+    73→      .map((s, i) => ({ ...s, rank: i + 1 }));
+    74→  }, [approvedSubmissions, votes]);
+    75→
+    76→  // ---- נתוני דוח השתתפות ----
+    77→  const participationData = useMemo(() => {
+    78→    const studentIds = new Set(students.map(s => s.id));
+    79→    const voterIds = new Set(votes.filter(v => studentIds.has(v.voter_id)).map(v => v.voter_id));
+    80→
+    81→    // קיבוץ לפי כיתה
+    82→    const classMap = new Map<string, { total: number; voted: number; names: string[] }>();
+    83→    students.forEach(s => {
+    84→      const cls = s.class || (language === 'he' ? 'ללא כיתה' : 'بدون صف');
+    85→      const existing = classMap.get(cls) || { total: 0, voted: 0, names: [] };
+    86→      existing.total++;
+    87→      if (voterIds.has(s.id)) {
+    88→        existing.voted++;
+    89→        existing.names.push(s.name);
+    90→      }
+    91→      classMap.set(cls, existing);
+    92→    });
+    93→
+    94→    const classData = Array.from(classMap.entries())
+    95→      .map(([cls, data]) => ({
+    96→        class: cls,
+    97→        total: data.total,
+    98→        voted: data.voted,
+    99→        rate: data.total > 0 ? Math.round((data.voted / data.total) * 100) : 0,
+   100→        names: data.names,
+   101→      }))
+   102→      .sort((a, b) => b.rate - a.rate);
+   103→
+   104→    const voterList = students
+   105→      .filter(s => voterIds.has(s.id))
+   106→      .sort((a, b) => (a.class || '').localeCompare(b.class || ''));
+   107→
+   108→    return {
+   109→      classData,
+   110→      voterList,
+   111→      totalVoters: voterIds.size,
+   112→      totalStudents: students.length,
+   113→      overallRate: students.length > 0 ? Math.round((voterIds.size / students.length) * 100) : 0,
+   114→    };
+   115→  }, [votes, students, language]);
+   116→
+   117→  const handlePrint = () => {
+   118→    window.print();
+   119→  };
+   120→
+   121→  const formatDate = (timestamp?: number) => {
+   122→    if (!timestamp) return '-';
+   123→    const d = new Date(timestamp);
+   124→    return d.toLocaleDateString(language === 'he' ? 'he-IL' : 'ar-SA', {
+   125→      year: 'numeric',
+   126→      month: 'short',
+   127→      day: 'numeric',
+   128→      hour: '2-digit',
+   129→      minute: '2-digit',
+   130→    });
+   131→  };
+   132→
+   133→  const getStatusBadge = (status: string) => {
+   134→    const map: Record<string, { color: string; text: string }> = {
+   135→      approved: { color: 'bg-green-500 text-white', text: t('report_status_approved') },
+   136→      pending: { color: 'bg-[#e67e22] text-white', text: t('report_status_pending') },
+   137→      rejected: { color: 'bg-red-500 text-white', text: t('report_status_rejected') },
+   138→    };
+   139→    const s = map[status] || map.pending;
+   140→    return <Badge className={s.color}>{s.text}</Badge>;
+   141→  };
+   142→
+   143→  return (
+   144→    <div className="p-4 space-y-4 max-w-6xl mx-auto">
+   145→      {/* כותרת */}
+   146→      <div className="flex items-center justify-between flex-wrap gap-3 no-print">
+   147→        <div className="flex items-center gap-3">
+   148→          <Button variant="ghost" size="sm" onClick={() => setCurrentView('admin-dashboard')}>
+   149→            <ArrowRight className="w-4 h-4" />
+   150→          </Button>
+   151→          <div>
+   152→            <h2 className="text-2xl font-bold flex items-center gap-2">
+   153→              <BarChart3 className="w-6 h-6 text-[#0ca7aa]" />
+   154→              {t('reports_title')}
+   155→            </h2>
+   156→          </div>
+   157→        </div>
+   158→        <Button onClick={handlePrint} variant="outline" className="gap-2">
+   159→          <Printer className="w-4 h-4" />
+   160→          {t('report_print')}
+   161→        </Button>
+   162→      </div>
+   163→
+   164→      {/* כרטיסי סיכום */}
+   165→      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 no-print">
+   166→        <Card className="border-l-4 border-l-[#e67e22]">
+   167→          <CardContent className="p-3">
+   168→            <div className="flex items-center gap-2">
+   169→              <div className="w-8 h-8 rounded-full bg-[#e67e22]/10 flex items-center justify-center">
+   170→                <FileImage className="w-4 h-4 text-[#e67e22]" />
+   171→              </div>
+   172→              <div>
+   173→                <p className="text-lg font-bold">{submissions.length}</p>
+   174→                <p className="text-xs text-muted-foreground">{t('report_total_submitted')}</p>
+   175→              </div>
+   176→            </div>
+   177→          </CardContent>
+   178→        </Card>
+   179→        <Card className="border-l-4 border-l-green-500">
+   180→          <CardContent className="p-3">
+   181→            <div className="flex items-center gap-2">
+   182→              <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+   183→                <Trophy className="w-4 h-4 text-green-500" />
+   184→              </div>
+   185→              <div>
+   186→                <p className="text-lg font-bold">{approvedSubmissions.length}</p>
+   187→                <p className="text-xs text-muted-foreground">{t('report_total_approved')}</p>
+   188→              </div>
+   189→            </div>
+   190→          </CardContent>
+   191→        </Card>
+   192→        <Card className="border-l-4 border-l-blue-500">
+   193→          <CardContent className="p-3">
+   194→            <div className="flex items-center gap-2">
+   195→              <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+   196→                <Users className="w-4 h-4 text-blue-500" />
+   197→              </div>
+   198→              <div>
+   199→                <p className="text-lg font-bold">{participationData.totalVoters}</p>
+   200→                <p className="text-xs text-muted-foreground">{t('report_total_voters')}</p>
+   201→              </div>
+   202→            </div>
+   203→          </CardContent>
+   204→        </Card>
+   205→        <Card className="border-l-4 border-l-purple-500">
+   206→          <CardContent className="p-3">
+   207→            <div className="flex items-center gap-2">
+   208→              <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+   209→                <TrendingUp className="w-4 h-4 text-purple-500" />
+   210→              </div>
+   211→              <div>
+   212→                <p className="text-lg font-bold">{participationData.overallRate}%</p>
+   213→                <p className="text-xs text-muted-foreground">{t('report_participation_rate')}</p>
+   214→              </div>
+   215→            </div>
+   216→          </CardContent>
+   217→        </Card>
+   218→      </div>
+   219→
+   220→      {/* טאבים */}
+   221→      <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as ReportTab)}>
+   222→        <TabsList className="w-full no-print">
+   223→          <TabsTrigger value="submissions" className="flex-1 gap-1">
+   224→            <FileImage className="w-4 h-4" />
+   225→            <span className="hidden sm:inline">{t('report_submissions')}</span>
+   226→          </TabsTrigger>
+   227→          <TabsTrigger value="votes" className="flex-1 gap-1">
+   228→            <Trophy className="w-4 h-4" />
+   229→            <span className="hidden sm:inline">{t('report_votes')}</span>
+   230→          </TabsTrigger>
+   231→          <TabsTrigger value="participation" className="flex-1 gap-1">
+   232→            <Users className="w-4 h-4" />
+   233→            <span className="hidden sm:inline">{t('report_participation')}</span>
+   234→          </TabsTrigger>
+   235→        </TabsList>
+   236→
+   237→        {/* ===== דוח הגשות ===== */}
+   238→        <TabsContent value="submissions">
+   239→          <Card className="print-area">
+   240→            <CardHeader className="pb-3">
+   241→              <CardTitle className="text-lg flex items-center gap-2">
+   242→                <FileImage className="w-5 h-5 text-[#e67e22]" />
+   243→                {t('report_submissions')}
+   244→              </CardTitle>
+   245→              <p className="text-xs text-muted-foreground print-show">
+   246→                {t('report_generated')}: {new Date().toLocaleString(language === 'he' ? 'he-IL' : 'ar-SA')}
+   247→              </p>
+   248→            </CardHeader>
+   249→            <CardContent>
+   250→              {submissions.length === 0 ? (
+   251→                <div className="text-center py-12 text-muted-foreground">
+   252→                  <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-30" />
+   253→                  <p>{t('report_no_submissions')}</p>
+   254→                </div>
+   255→              ) : (
+   256→                <div className="overflow-x-auto">
+   257→                  <table className="w-full text-sm">
+   258→                    <thead>
+   259→                      <tr className="border-b bg-muted/50">
+   260→                        <th className="p-2 text-start font-semibold">#</th>
+   261→                        <th className="p-2 text-start font-semibold">{t('report_poster_image')}</th>
+   262→                        <th className="p-2 text-start font-semibold">{t('report_student_name')}</th>
+   263→                        <th className="p-2 text-start font-semibold">{t('report_student_id')}</th>
+   264→                        <th className="p-2 text-start font-semibold">{t('report_class')}</th>
+   265→                        <th className="p-2 text-start font-semibold">{t('report_category')}</th>
+   266→                        <th className="p-2 text-start font-semibold">{t('report_status')}</th>
+   267→                        <th className="p-2 text-start font-semibold">{t('report_date')}</th>
+   268→                      </tr>
+   269→                    </thead>
+   270→                    <tbody>
+   271→                      {submissions.map((sub, idx) => (
+   272→                        <tr key={sub.id} className="border-b hover:bg-muted/30 transition-colors">
+   273→                          <td className="p-2 text-muted-foreground">{idx + 1}</td>
+   274→                          <td className="p-2">
+   275→                            <div className="w-16 h-12 rounded-md overflow-hidden bg-muted">
+   276→                              <img
+   277→                                src={sub.image_base64}
+   278→                                alt=""
+   279→                                className="w-full h-full object-cover"
+   280→                              />
+   281→                            </div>
+   282→                          </td>
+   283→                          <td className="p-2 font-medium">{sub.student_name}</td>
+   284→                          <td className="p-2 text-muted-foreground font-mono text-xs">{sub.student_id}</td>
+   285→                          <td className="p-2">{sub.class}</td>
+   286→                          <td className="p-2">
+   287→                            <Badge variant="outline" className="text-xs">{sub.category}</Badge>
+   288→                          </td>
+   289→                          <td className="p-2">{getStatusBadge(sub.status)}</td>
+   290→                          <td className="p-2 text-xs text-muted-foreground">{formatDate(sub.created_at)}</td>
+   291→                        </tr>
+   292→                      ))}
+   293→                    </tbody>
+   294→                  </table>
+   295→                </div>
+   296→              )}
+   297→            </CardContent>
+   298→          </Card>
+   299→        </TabsContent>
+   300→
+   301→        {/* ===== דוח הצבעות ===== */}
+   302→        <TabsContent value="votes">
+   303→          <Card className="print-area">
+   304→            <CardHeader className="pb-3">
+   305→              <CardTitle className="text-lg flex items-center gap-2">
+   306→                <Trophy className="w-5 h-5 text-[#0ca7aa]" />
+   307→                {t('report_votes')}
+   308→              </CardTitle>
+   309→              <p className="text-xs text-muted-foreground print-show">
+   310→                {t('report_generated')}: {new Date().toLocaleString(language === 'he' ? 'he-IL' : 'ar-SA')}
+   311→              </p>
+   312→            </CardHeader>
+   313→            <CardContent>
+   314→              {votesPerPoster.length === 0 ? (
+   315→                <div className="text-center py-12 text-muted-foreground">
+   316→                  <Trophy className="w-12 h-12 mx-auto mb-3 opacity-30" />
+   317→                  <p>{t('report_no_votes')}</p>
+   318→                </div>
+   319→              ) : (
+   320→                <div className="overflow-x-auto">
+   321→                  <table className="w-full text-sm">
+   322→                    <thead>
+   323→                      <tr className="border-b bg-muted/50">
+   324→                        <th className="p-2 text-start font-semibold">{t('report_rank')}</th>
+   325→                        <th className="p-2 text-start font-semibold">{t('report_poster_image')}</th>
+   326→                        <th className="p-2 text-start font-semibold">{t('report_student_name')}</th>
+   327→                        <th className="p-2 text-start font-semibold">{t('report_class')}</th>
+   328→                        <th className="p-2 text-start font-semibold">{t('report_category')}</th>
+   329→                        <th className="p-2 text-start font-semibold">{t('report_votes')}</th>
+   330→                      </tr>
+   331→                    </thead>
+   332→                    <tbody>
+   333→                      {votesPerPoster.map((sub) => (
+   334→                        <tr key={sub.id} className="border-b hover:bg-muted/30 transition-colors">
+   335→                          <td className="p-2">
+   336→                            <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-bold ${
+   337→                              sub.rank === 1 ? 'bg-yellow-100 text-yellow-700' :
+   338→                              sub.rank === 2 ? 'bg-gray-100 text-gray-600' :
+   339→                              sub.rank === 3 ? 'bg-orange-100 text-orange-600' :
+   340→                              'text-muted-foreground'
+   341→                            }`}>
+   342→                              {sub.rank}
+   343→                            </span>
+   344→                          </td>
+   345→                          <td className="p-2">
+   346→                            <div className="w-20 h-14 rounded-md overflow-hidden bg-muted">
+   347→                              <img
+   348→                                src={sub.image_base64}
+   349→                                alt=""
+   350→                                className="w-full h-full object-cover"
+   351→                              />
+   352→                            </div>
+   353→                          </td>
+   354→                          <td className="p-2 font-medium">{sub.student_name}</td>
+   355→                          <td className="p-2">{sub.class}</td>
+   356→                          <td className="p-2">
+   357→                            <Badge variant="outline" className="text-xs">{sub.category}</Badge>
+   358→                          </td>
+   359→                          <td className="p-2">
+   360→                            <span className="text-lg font-bold text-[#0ca7aa]">{sub.voteCount}</span>
+   361→                          </td>
+   362→                        </tr>
+   363→                      ))}
+   364→                    </tbody>
+   365→                  </table>
+   366→                </div>
+   367→              )}
+   368→            </CardContent>
+   369→          </Card>
+   370→        </TabsContent>
+   371→
+   372→        {/* ===== דוח השתתפות ===== */}
+   373→        <TabsContent value="participation">
+   374→          <div className="space-y-4 print-area">
+   375→            {/* סיכום כללי */}
+   376→            <Card>
+   377→              <CardHeader className="pb-3">
+   378→                <CardTitle className="text-lg flex items-center gap-2">
+   379→                  <Users className="w-5 h-5 text-blue-500" />
+   380→                  {t('report_participation')}
+   381→                </CardTitle>
+   382→                <p className="text-xs text-muted-foreground print-show">
+   383→                  {t('report_generated')}: {new Date().toLocaleString(language === 'he' ? 'he-IL' : 'ar-SA')}
+   384→                </p>
+   385→              </CardHeader>
+   386→              <CardContent className="space-y-6">
+   387→                {/* גרף עוגה - השתתפות כללית */}
+   388→                <div className="flex flex-col md:flex-row items-center gap-6">
+   389→                  <div className="w-full md:w-1/2 h-64">
+   390→                    <ResponsiveContainer width="100%" height="100%">
+   391→                      <PieChart>
+   392→                        <Pie
+   393→                          data={[
+   394→                            { name: t('report_voted'), value: participationData.totalVoters, fill: '#0ca7aa' },
+   395→                            { name: t('report_didnt_vote'), value: participationData.totalStudents - participationData.totalVoters, fill: '#e0e0e0' },
+   396→                          ]}
+   397→                          dataKey="value"
+   398→                          nameKey="name"
+   399→                          cx="50%"
+   400→                          cy="50%"
+   401→                          innerRadius={50}
+   402→                          outerRadius={90}
+   403→                          label={({ name, value }) => `${name}: ${value}`}
+   404→                        >
+   405→                          <Cell fill="#0ca7aa" />
+   406→                          <Cell fill="#e0e0e0" />
+   407→                        </Pie>
+   408→                        <Tooltip />
+   409→                      </PieChart>
+   410→                    </ResponsiveContainer>
+   411→                  </div>
+   412→                  <div className="w-full md:w-1/2 grid grid-cols-2 gap-3">
+   413→                    <Card className="bg-[#0ca7aa]/5 border-[#0ca7aa]/20">
+   414→                      <CardContent className="p-4 text-center">
+   415→                        <p className="text-3xl font-bold text-[#0ca7aa]">{participationData.totalVoters}</p>
+   416→                        <p className="text-sm text-muted-foreground">{t('report_voted_students')}</p>
+   417→                      </CardContent>
+   418→                    </Card>
+   419→                    <Card className="bg-muted/30">
+   420→                      <CardContent className="p-4 text-center">
+   421→                        <p className="text-3xl font-bold">{participationData.totalStudents}</p>
+   422→                        <p className="text-sm text-muted-foreground">{t('report_total_students')}</p>
+   423→                      </CardContent>
+   424→                    </Card>
+   425→                    <Card className="bg-green-50 border-green-200 col-span-2">
+   426→                      <CardContent className="p-4 text-center">
+   427→                        <p className="text-3xl font-bold text-green-600">{participationData.overallRate}%</p>
+   428→                        <p className="text-sm text-muted-foreground">{t('report_participation_rate')}</p>
+   429→                      </CardContent>
+   430→                    </Card>
+   431→                  </div>
+   432→                </div>
+   433→
+   434→                {/* גרף עמודות - לפי כיתה */}
+   435→                <div>
+   436→                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+   437→                    <BarChart3 className="w-5 h-5 text-[#e67e22]" />
+   438→                    {t('report_class_participation')}
+   439→                  </h3>
+   440→                  <div className="h-80">
+   441→                    <ResponsiveContainer width="100%" height="100%">
+   442→                      <BarChart data={participationData.classData} layout="vertical" margin={{ top: 5, right: 30, left: 80, bottom: 5 }}>
+   443→                        <CartesianGrid strokeDasharray="3 3" />
+   444→                        <XAxis type="number" allowDecimals={false} />
+   445→                        <YAxis
+   446→                          type="category"
+   447→                          dataKey="class"
+   448→                          width={75}
+   449→                          tick={{ fontSize: 11 }}
+   450→                        />
+   451→                        <Tooltip
+   452→                          formatter={(value: number, name: string) => {
+   453→                            const label = name === 'voted' ? t('report_voted') : t('report_total');
+   454→                            return [value, label];
+   455→                          }}
+   456→                        />
+   457→                        <Legend
+   458→                          formatter={(value: string) => value === 'voted' ? t('report_voted') : t('report_total')}
+   459→                        />
+   460→                        <Bar dataKey="voted" fill="#0ca7aa" radius={[0, 4, 4, 0]} name="voted" />
+   461→                        <Bar dataKey="total" fill="#e0e0e0" radius={[0, 4, 4, 0]} name="total" />
+   462→                      </BarChart>
+   463→                    </ResponsiveContainer>
+   464→                  </div>
+   465→                </div>
+   466→
+   467→                {/* טבלת פירוט כיתות */}
+   468→                <div className="overflow-x-auto">
+   469→                  <table className="w-full text-sm">
+   470→                    <thead>
+   471→                      <tr className="border-b bg-muted/50">
+   472→                        <th className="p-2 text-start font-semibold">{t('report_class')}</th>
+   473→                        <th className="p-2 text-center font-semibold">{t('report_voted')}</th>
+   474→                        <th className="p-2 text-center font-semibold">{t('report_total')}</th>
+   475→                        <th className="p-2 text-center font-semibold">{t('report_participation_rate')}</th>
+   476→                        <th className="p-2 text-start font-semibold hidden md:table-cell">
+   477→                          {/* עמודת פס התקדמות */}
+   478→                          <span className="sr-only">progress</span>
+   479→                        </th>
+   480→                      </tr>
+   481→                    </thead>
+   482→                    <tbody>
+   483→                      {participationData.classData.map((cls) => (
+   484→                        <tr key={cls.class} className="border-b hover:bg-muted/30">
+   485→                          <td className="p-2 font-medium">{cls.class}</td>
+   486→                          <td className="p-2 text-center text-[#0ca7aa] font-bold">{cls.voted}</td>
+   487→                          <td className="p-2 text-center">{cls.total}</td>
+   488→                          <td className="p-2 text-center">
+   489→                            <Badge
+   490→                              variant="outline"
+   491→                              className={
+   492→                                cls.rate >= 70 ? 'border-green-500 text-green-600' :
+   493→                                cls.rate >= 40 ? 'border-[#e67e22] text-[#e67e22]' :
+   494→                                'border-red-400 text-red-500'
+   495→                              }
+   496→                            >
+   497→                              {cls.rate}%
+   498→                            </Badge>
+   499→                          </td>
+   500→                          <td className="p-2 hidden md:table-cell">
+   501→                            <div className="w-full bg-muted rounded-full h-2">
+   502→                              <div
+   503→                                className="bg-[#0ca7aa] h-2 rounded-full transition-all duration-500"
+   504→                                style={{ width: `${cls.rate}%` }}
+   505→                              />
+   506→                            </div>
+   507→                          </td>
+   508→                        </tr>
+   509→                      ))}
+   510→                    </tbody>
+   511→                    <tfoot>
+   512→                      <tr className="border-t-2 bg-muted/30 font-bold">
+   513→                        <td className="p-2">{t('report_total')}</td>
+   514→                        <td className="p-2 text-center text-[#0ca7aa]">{participationData.totalVoters}</td>
+   515→                        <td className="p-2 text-center">{participationData.totalStudents}</td>
+   516→                        <td className="p-2 text-center">
+   517→                          <Badge className="bg-[#0ca7aa] text-white">{participationData.overallRate}%</Badge>
+   518→                        </td>
+   519→                        <td className="hidden md:table-cell" />
+   520→                      </tr>
+   521→                    </tfoot>
+   522→                  </table>
+   523→                </div>
+   524→
+   525→                {/* רשימת מצביעים */}
+   526→                <div>
+   527→                  <h3 className="text-lg font-semibold mb-3">
+   528→                    {t('report_voted_students')} ({participationData.voterList.length})
+   529→                  </h3>
+   530→                  {participationData.voterList.length === 0 ? (
+   531→                    <p className="text-center py-6 text-muted-foreground">{t('report_no_voters')}</p>
+   532→                  ) : (
+   533→                    <div className="max-h-96 overflow-y-auto">
+   534→                      <table className="w-full text-sm">
+   535→                        <thead className="sticky top-0 bg-background">
+   536→                          <tr className="border-b bg-muted/50">
+   537→                            <th className="p-2 text-start font-semibold">#</th>
+   538→                            <th className="p-2 text-start font-semibold">{t('report_student_name')}</th>
+   539→                            <th className="p-2 text-start font-semibold">{t('report_student_id')}</th>
+   540→                            <th className="p-2 text-start font-semibold">{t('report_class')}</th>
+   541→                          </tr>
+   542→                        </thead>
+   543→                        <tbody>
+   544→                          {participationData.voterList.map((voter, idx) => (
+   545→                            <tr key={voter.id} className="border-b hover:bg-muted/30">
+   546→                              <td className="p-2 text-muted-foreground">{idx + 1}</td>
+   547→                              <td className="p-2 font-medium">{voter.name}</td>
+   548→                              <td className="p-2 text-muted-foreground font-mono text-xs">{voter.id}</td>
+   549→                              <td className="p-2">{voter.class}</td>
+   550→                            </tr>
+   551→                          ))}
+   552→                        </tbody>
+   553→                      </table>
+   554→                    </div>
+   555→                  )}
+   556→                </div>
+   557→              </CardContent>
+   558→            </Card>
+   559→          </div>
+   560→        </TabsContent>
+   561→      </Tabs>
+   562→
+   563→      {/* סגנונות הדפסה */}
+   564→      <style jsx global>{`
+   565→        @media print {
+   566→          .no-print {
+   567→            display: none !important;
+   568→          }
+   569→          .print-show {
+   570→            display: block !important;
+   571→          }
+   572→          body {
+   573→            background: white !important;
+   574→          }
+   575→          .print-area {
+   576→            box-shadow: none !important;
+   577→            border: none !important;
+   578→            page-break-inside: avoid;
+   579→          }
+   580→          table {
+   581→            font-size: 10px !important;
+   582→          }
+   583→          th, td {
+   584→            padding: 4px 6px !important;
+   585→          }
+   586→          img {
+   587→            max-width: 80px !important;
+   588→            max-height: 60px !important;
+   589→          }
+   590→        }
+   591→      `}</style>
+   592→    </div>
+   593→  );
+   594→}

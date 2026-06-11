@@ -12,13 +12,15 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { useAppStore } from '@/store/app-store';
 import { DataManager, type VotingMode, DEFAULT_SETTINGS } from '@/lib/data-manager';
-import { ArrowLeft, Settings, Plus, X, Save, RotateCcw, Globe, Type, Vote, Info } from 'lucide-react';
+import { useTranslation } from '@/lib/translations';
+import { ArrowLeft, Settings, Plus, X, Save, RotateCcw, Globe, Type, Vote, Info, Lock, Shield, UserPlus, Trash2 } from 'lucide-react';
 
 export function AdminSettings() {
   const settings = useAppStore((s) => s.settings);
   const refreshSettings = useAppStore((s) => s.refreshSettings);
   const language = useAppStore((s) => s.language);
   const setCurrentView = useAppStore((s) => s.setCurrentView);
+  const { t } = useTranslation();
 
   // הגדרות מקומיות לעריכה
   const [votingOpen, setVotingOpen] = useState(settings.voting_open);
@@ -34,6 +36,24 @@ export function AdminSettings() {
   // טקסטים
   const [textsHe, setTextsHe] = useState<Record<string, string>>({ ...settings.texts.he });
   const [textsAr, setTextsAr] = useState<Record<string, string>>({ ...settings.texts.ar });
+
+  // ---- סיסמת מנהל ----
+  const [currentPass, setCurrentPass] = useState('');
+  const [newPass, setNewPass] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
+  const [passMsg, setPassMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  // ---- קודי מנהל משנה ----
+  const [adminCodes, setAdminCodes] = useState<string[]>(() => DataManager.getAdminCodes());
+  const [newAdminCode, setNewAdminCode] = useState('');
+
+  // ---- משתמשים מיוחדים ----
+  const [customUsers, setCustomUsers] = useState(() => DataManager.getCustomUsers());
+  const [newUserId, setNewUserId] = useState('');
+  const [newUserName, setNewUserName] = useState('');
+  const [newUserClass, setNewUserClass] = useState('');
+  const [newUserRole, setNewUserRole] = useState<'student' | 'parent'>('student');
+  const [customUserMsg, setCustomUserMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   // ---- שמירת טוגלים ----
   const handleToggle = (key: 'voting_open' | 'submission_open', value: boolean) => {
@@ -121,6 +141,71 @@ export function AdminSettings() {
       setTextsAr({ ...fresh.texts.ar });
       refreshSettings();
     }
+  };
+
+  // ---- שינוי סיסמת מנהל ----
+  const handleChangePassword = () => {
+    setPassMsg(null);
+    if (!currentPass || !newPass || !confirmPass) {
+      setPassMsg({ type: 'error', text: t('admin_password_error_empty') });
+      return;
+    }
+    if (currentPass !== DataManager.getAdminPassword()) {
+      setPassMsg({ type: 'error', text: t('admin_password_error_wrong') });
+      return;
+    }
+    if (newPass !== confirmPass) {
+      setPassMsg({ type: 'error', text: t('admin_password_error_match') });
+      return;
+    }
+    DataManager.setAdminPassword(newPass);
+    setPassMsg({ type: 'success', text: t('admin_password_success') });
+    setCurrentPass('');
+    setNewPass('');
+    setConfirmPass('');
+  };
+
+  // ---- ניהול קודי מנהל משנה ----
+  const handleAddAdminCode = () => {
+    const code = newAdminCode.trim();
+    if (!code) return;
+    DataManager.addAdminCode(code);
+    setAdminCodes(DataManager.getAdminCodes());
+    setNewAdminCode('');
+  };
+
+  const handleRemoveAdminCode = (code: string) => {
+    DataManager.removeAdminCode(code);
+    setAdminCodes(DataManager.getAdminCodes());
+  };
+
+  // ---- ניהול משתמשים מיוחדים ----
+  const handleAddCustomUser = () => {
+    setCustomUserMsg(null);
+    const id = newUserId.trim();
+    const name = newUserName.trim();
+    if (!id || !name) {
+      setCustomUserMsg({ type: 'error', text: language === 'he' ? 'נא למלא תעודת זהות ושם' : 'يرجى ملء رقم الهوية والاسم' });
+      return;
+    }
+    // בדיקה שאין כפילות
+    const existing = DataManager.findUserByIdAll(id);
+    if (existing) {
+      setCustomUserMsg({ type: 'error', text: language === 'he' ? 'תעודת זהות כבר קיימת במערכת' : 'رقم الهوية موجود بالفعل في النظام' });
+      return;
+    }
+    DataManager.addCustomUser({ id, name, role: newUserRole, class: newUserClass.trim() });
+    setCustomUsers(DataManager.getCustomUsers());
+    setNewUserId('');
+    setNewUserName('');
+    setNewUserClass('');
+    setCustomUserMsg({ type: 'success', text: language === 'he' ? 'המשתמש נוסף בהצלחה' : 'تمت إضافة المستخدم بنجاح' });
+    setTimeout(() => setCustomUserMsg(null), 3000);
+  };
+
+  const handleRemoveCustomUser = (userId: string) => {
+    DataManager.removeCustomUser(userId);
+    setCustomUsers(DataManager.getCustomUsers());
   };
 
   const textKeys = Object.keys(textsHe);
@@ -358,6 +443,200 @@ export function AdminSettings() {
               </Button>
             </div>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* שינוי סיסמת מנהל */}
+      <Card className="border-[#e74c3c]/30">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Lock className="w-5 h-5 text-[#e74c3c]" />
+            {t('admin_password_title')}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <Input
+              type="password"
+              value={currentPass}
+              onChange={(e) => setCurrentPass(e.target.value)}
+              placeholder={t('admin_password_current')}
+              className="h-10"
+            />
+            <Input
+              type="password"
+              value={newPass}
+              onChange={(e) => setNewPass(e.target.value)}
+              placeholder={t('admin_password_new')}
+              className="h-10"
+            />
+            <Input
+              type="password"
+              value={confirmPass}
+              onChange={(e) => setConfirmPass(e.target.value)}
+              placeholder={t('admin_password_confirm')}
+              className="h-10"
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <Button onClick={handleChangePassword} variant="outline" className="border-[#e74c3c]/30 text-[#e74c3c] hover:bg-[#e74c3c]/10">
+              <Save className="w-4 h-4 ms-2" />
+              {t('admin_password_save')}
+            </Button>
+            {passMsg && (
+              <p className={`text-sm animate-in fade-in duration-200 ${passMsg.type === 'success' ? 'text-green-600' : 'text-destructive'}`}>
+                {passMsg.text}
+              </p>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* קודי מנהל משנה */}
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Shield className="w-5 h-5 text-purple-500" />
+            {t('admin_codes_title')}
+          </CardTitle>
+          <CardDescription>{t('admin_codes_desc')}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <div className="flex gap-2">
+            <Input
+              value={newAdminCode}
+              onChange={(e) => setNewAdminCode(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleAddAdminCode()}
+              placeholder={t('admin_codes_placeholder')}
+              className="flex-1 h-10"
+            />
+            <Button size="sm" onClick={handleAddAdminCode} variant="outline">
+              <Plus className="w-4 h-4 ms-1" />
+              {t('admin_codes_add')}
+            </Button>
+          </div>
+          {adminCodes.length === 0 ? (
+            <p className="text-sm text-muted-foreground text-center py-2">{t('admin_codes_empty')}</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {adminCodes.map((code) => (
+                <Badge key={code} variant="secondary" className="px-3 py-1.5 text-sm gap-1">
+                  <span className="font-mono">{code}</span>
+                  <button onClick={() => handleRemoveAdminCode(code)} className="hover:text-destructive">
+                    <X className="w-3 h-3" />
+                  </button>
+                </Badge>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* משתמשים מיוחדים */}
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg flex items-center gap-2">
+            <UserPlus className="w-5 h-5 text-[#0ca7aa]" />
+            {t('custom_users_title')}
+          </CardTitle>
+          <CardDescription>{t('custom_users_desc')}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {/* טופס הוספה */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 items-end">
+            <div>
+              <label className="text-xs text-muted-foreground mb-1 block">{t('report_student_id')}</label>
+              <Input
+                value={newUserId}
+                onChange={(e) => setNewUserId(e.target.value)}
+                placeholder={t('custom_users_id_placeholder')}
+                className="h-10"
+              />
+            </div>
+            <div>
+              <label className="text-xs text-muted-foreground mb-1 block">{t('report_student_name')}</label>
+              <Input
+                value={newUserName}
+                onChange={(e) => setNewUserName(e.target.value)}
+                placeholder={t('custom_users_name_placeholder')}
+                className="h-10"
+              />
+            </div>
+            <div>
+              <label className="text-xs text-muted-foreground mb-1 block">{t('report_class')}</label>
+              <Input
+                value={newUserClass}
+                onChange={(e) => setNewUserClass(e.target.value)}
+                placeholder={t('custom_users_class_placeholder')}
+                className="h-10"
+              />
+            </div>
+            <div>
+              <label className="text-xs text-muted-foreground mb-1 block">
+                {language === 'he' ? 'תפקיד' : 'الدور'}
+              </label>
+              <div className="flex rounded-md border overflow-hidden h-10">
+                <button
+                  onClick={() => setNewUserRole('student')}
+                  className={`flex-1 text-sm transition-colors ${newUserRole === 'student' ? 'bg-[#0ca7aa] text-white' : 'bg-background hover:bg-muted'}`}
+                >
+                  {t('custom_users_role_student')}
+                </button>
+                <button
+                  onClick={() => setNewUserRole('parent')}
+                  className={`flex-1 text-sm transition-colors ${newUserRole === 'parent' ? 'bg-[#e67e22] text-white' : 'bg-background hover:bg-muted'}`}
+                >
+                  {t('custom_users_role_parent')}
+                </button>
+              </div>
+            </div>
+            <Button onClick={handleAddCustomUser} className="h-10 bg-[#0ca7aa] hover:bg-[#099598] text-white">
+              <Plus className="w-4 h-4 ms-1" />
+              {t('custom_users_add')}
+            </Button>
+          </div>
+          {customUserMsg && (
+            <p className={`text-sm animate-in fade-in duration-200 ${customUserMsg.type === 'success' ? 'text-green-600' : 'text-destructive'}`}>
+              {customUserMsg.text}
+            </p>
+          )}
+          {/* רשימת משתמשים מיוחדים */}
+          {customUsers.length === 0 ? (
+            <p className="text-sm text-muted-foreground text-center py-2">{t('custom_users_empty')}</p>
+          ) : (
+            <div className="max-h-48 overflow-y-auto rounded-lg border">
+              <table className="w-full text-sm">
+                <thead className="sticky top-0 bg-muted/80">
+                  <tr className="border-b">
+                    <th className="p-2 text-start font-medium">{t('report_student_id')}</th>
+                    <th className="p-2 text-start font-medium">{t('report_student_name')}</th>
+                    <th className="p-2 text-start font-medium hidden sm:table-cell">{t('report_class')}</th>
+                    <th className="p-2 text-start font-medium hidden sm:table-cell">{language === 'he' ? 'תפקיד' : 'الدور'}</th>
+                    <th className="p-2 w-10"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {customUsers.map((u) => (
+                    <tr key={u.id} className="border-b hover:bg-muted/30">
+                      <td className="p-2 font-mono text-xs">{u.id}</td>
+                      <td className="p-2">{u.name}</td>
+                      <td className="p-2 hidden sm:table-cell">{u.class || '-'}</td>
+                      <td className="p-2 hidden sm:table-cell">
+                        <Badge variant={u.role === 'student' ? 'default' : 'secondary'} className={u.role === 'student' ? 'bg-[#0ca7aa] text-white' : 'bg-[#e67e22] text-white'}>
+                          {u.role === 'student' ? t('custom_users_role_student') : t('custom_users_role_parent')}
+                        </Badge>
+                      </td>
+                      <td className="p-2">
+                        <button onClick={() => handleRemoveCustomUser(u.id)} className="text-muted-foreground hover:text-destructive transition-colors">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </CardContent>
       </Card>
 

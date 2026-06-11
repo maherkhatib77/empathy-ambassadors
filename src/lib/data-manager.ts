@@ -138,6 +138,30 @@ export const DEFAULT_SETTINGS: Settings = {
       report_total: 'סה״כ',
       report_generated: 'הדוח הופק בתאריך',
       report_participation_comparison: 'השוואת השתתפות - כיתה מול כלל',
+      report_no_class: 'ללא כיתה',
+      admin_password_title: 'שינוי סיסמת מנהל',
+      admin_password_current: 'סיסמה נוכחית',
+      admin_password_new: 'סיסמה חדשה',
+      admin_password_confirm: 'אימות סיסמה',
+      admin_password_save: 'שמור סיסמה',
+      admin_password_success: 'הסיסמה שונתה בהצלחה',
+      admin_password_error_wrong: 'סיסמה נוכחית שגויה',
+      admin_password_error_match: 'הסיסמאות אינן תואמות',
+      admin_password_error_empty: 'נא למלא את כל השדות',
+      admin_codes_title: 'קודי מנהל משנה',
+      admin_codes_desc: 'הוסף קודים שיאפשרו גישה ללוח הניהול',
+      admin_codes_add: 'הוסף קוד',
+      admin_codes_placeholder: 'קוד מנהל משנה...',
+      admin_codes_empty: 'אין קודי מנהל משנה',
+      custom_users_title: 'קודי כניסה מיוחדים',
+      custom_users_desc: 'הוסף משתמשים שאינם ברשימת התלמידים (הגשה ו/או הצבעה)',
+      custom_users_add: 'הוסף משתמש',
+      custom_users_id_placeholder: 'תעודת זהות',
+      custom_users_name_placeholder: 'שם מלא',
+      custom_users_class_placeholder: 'כיתה',
+      custom_users_role_student: 'תלמיד',
+      custom_users_role_parent: 'הורה',
+      custom_users_empty: 'אין משתמשים מיוחדים',
     },
     ar: {
       site_title: 'سفراء التعاطف',
@@ -215,6 +239,30 @@ export const DEFAULT_SETTINGS: Settings = {
       report_total: 'إجمالي',
       report_generated: 'تم إنشاء التقرير في',
       report_participation_comparison: 'مقارنة المشاركة - صف مقابل إجمالي',
+      report_no_class: 'بدون صف',
+      admin_password_title: 'تغيير كلمة مرور المسؤول',
+      admin_password_current: 'كلمة المرور الحالية',
+      admin_password_new: 'كلمة المرور الجديدة',
+      admin_password_confirm: 'تأكيد كلمة المرور',
+      admin_password_save: 'حفظ كلمة المرور',
+      admin_password_success: 'تم تغيير كلمة المرور بنجاح',
+      admin_password_error_wrong: 'كلمة المرور الحالية خاطئة',
+      admin_password_error_match: 'كلمات المرور غير متطابقة',
+      admin_password_error_empty: 'يرجى ملء جميع الحقول',
+      admin_codes_title: 'رموز مسؤول ثانوي',
+      admin_codes_desc: 'أضف رموزًا تسمح بالوصول إلى لوحة الإدارة',
+      admin_codes_add: 'إضافة رمز',
+      admin_codes_placeholder: 'رمز مسؤول ثانوي...',
+      admin_codes_empty: 'لا توجد رموز مسؤول ثانوي',
+      custom_users_title: 'رموز دخول خاصة',
+      custom_users_desc: 'أضف مستخدمين غير موجودين في قائمة الطلاب',
+      custom_users_add: 'إضافة مستخدم',
+      custom_users_id_placeholder: 'رقم الهوية',
+      custom_users_name_placeholder: 'الاسم الكامل',
+      custom_users_class_placeholder: 'الصف',
+      custom_users_role_student: 'طالب',
+      custom_users_role_parent: 'ولي أمر',
+      custom_users_empty: 'لا يوجد مستخدمون خاصون',
     },
   },
 };
@@ -227,6 +275,9 @@ const KEYS = {
   SETTINGS: 'empathy_settings',
   INITIALIZED: 'empathy_initialized',
   USERS_VERSION: 'empathy_users_version',
+  ADMIN_PASSWORD: 'empathy_admin_password',
+  ADMIN_CODES: 'empathy_admin_codes',
+  CUSTOM_USERS: 'empathy_custom_users',
 };
 
 // גרסת המשתמשים - מתעדכנת כשמייבאים מה-Excel
@@ -316,18 +367,27 @@ export class DataManager {
     return data ? JSON.parse(data) : DEFAULT_SETTINGS;
   }
 
-  // ---- חיפוש משתמש לפי ID ----
+  // ---- חיפוש משתמש לפי ID (רגילים בלבד) ----
   static findUserById(id: string): User | undefined {
     return DataManager.getUsers().find(u => u.id === id);
   }
 
-  // ---- עדכון משתמש ----
+  // ---- עדכון משתמש (כולל משתמשים מיוחדים) ----
   static updateUser(userId: string, updates: Partial<User>): void {
+    // נסה במשתמשים רגילים
     const users = DataManager.getUsers();
     const index = users.findIndex(u => u.id === userId);
     if (index !== -1) {
       users[index] = { ...users[index], ...updates };
       localStorage.setItem(KEYS.USERS, JSON.stringify(users));
+      return;
+    }
+    // נסה במשתמשים מיוחדים
+    const customUsers = DataManager.getCustomUsers();
+    const cIndex = customUsers.findIndex(u => u.id === userId);
+    if (cIndex !== -1) {
+      customUsers[cIndex] = { ...customUsers[cIndex], ...updates };
+      localStorage.setItem(KEYS.CUSTOM_USERS, JSON.stringify(customUsers));
     }
   }
 
@@ -530,5 +590,89 @@ export class DataManager {
       reader.onerror = reject;
       reader.readAsDataURL(file);
     });
+  }
+
+  // ================================================================
+  // ---- ניהול סיסמת מנהל ----
+  // ================================================================
+
+  static getAdminPassword(): string {
+    if (typeof window === 'undefined') return 'admin123';
+    return localStorage.getItem(KEYS.ADMIN_PASSWORD) || 'admin123';
+  }
+
+  static setAdminPassword(newPassword: string): boolean {
+    if (typeof window === 'undefined') return false;
+    localStorage.setItem(KEYS.ADMIN_PASSWORD, newPassword);
+    return true;
+  }
+
+  static verifyAdminPassword(password: string): boolean {
+    // בדיקה נגד סיסמת המנהל הנוכחית
+    if (password === DataManager.getAdminPassword()) return true;
+    // בדיקה נגד קודי מנהל משנה
+    const codes = DataManager.getAdminCodes();
+    return codes.includes(password);
+  }
+
+  // ================================================================
+  // ---- ניהול קודי מנהל משנה ----
+  // ================================================================
+
+  static getAdminCodes(): string[] {
+    if (typeof window === 'undefined') return [];
+    const data = localStorage.getItem(KEYS.ADMIN_CODES);
+    return data ? JSON.parse(data) : [];
+  }
+
+  static addAdminCode(code: string): void {
+    if (typeof window === 'undefined') return;
+    const codes = DataManager.getAdminCodes();
+    if (!codes.includes(code)) {
+      codes.push(code);
+      localStorage.setItem(KEYS.ADMIN_CODES, JSON.stringify(codes));
+    }
+  }
+
+  static removeAdminCode(code: string): void {
+    if (typeof window === 'undefined') return;
+    const codes = DataManager.getAdminCodes().filter(c => c !== code);
+    localStorage.setItem(KEYS.ADMIN_CODES, JSON.stringify(codes));
+  }
+
+  // ================================================================
+  // ---- ניהול משתמשים מיוחדים (שאינם באקסל) ----
+  // ================================================================
+
+  static getCustomUsers(): User[] {
+    if (typeof window === 'undefined') return [];
+    const data = localStorage.getItem(KEYS.CUSTOM_USERS);
+    return data ? JSON.parse(data) : [];
+  }
+
+  static addCustomUser(user: { id: string; name: string; role: 'student' | 'parent'; class: string }): void {
+    if (typeof window === 'undefined') return;
+    const users = DataManager.getCustomUsers();
+    users.push({
+      ...user,
+      submitted_flag: false,
+      voted_flag: false,
+    });
+    localStorage.setItem(KEYS.CUSTOM_USERS, JSON.stringify(users));
+  }
+
+  static removeCustomUser(userId: string): void {
+    if (typeof window === 'undefined') return;
+    const users = DataManager.getCustomUsers().filter(u => u.id !== userId);
+    localStorage.setItem(KEYS.CUSTOM_USERS, JSON.stringify(users));
+  }
+
+  // ---- חיפוש משתמש כולל משתמשים מיוחדים ----
+  static findUserByIdAll(id: string): User | undefined {
+    // חפש במשתמשים רגילים (מהאקסל)
+    const regular = DataManager.getUsers().find(u => u.id === id);
+    if (regular) return regular;
+    // חפש במשתמשים מיוחדים
+    return DataManager.getCustomUsers().find(u => u.id === id);
   }
 }

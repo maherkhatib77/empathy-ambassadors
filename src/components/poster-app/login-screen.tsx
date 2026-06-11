@@ -30,7 +30,7 @@ export function LoginScreen() {
       return;
     }
 
-    const user = DataManager.findUserById(trimmedId);
+    const user = DataManager.findUserByIdAll(trimmedId);
 
     if (!user) {
       setError(t('login_error'));

@@ -14,7 +14,8 @@ export type AppView =
   | 'admin-login'
   | 'admin-dashboard'
   | 'admin-submissions'
-  | 'admin-settings';
+  | 'admin-settings'
+  | 'admin-reports';
 
 export type Language = 'he' | 'ar';
 

@@ -23,6 +23,7 @@ import {
   Users,
   GraduationCap,
   UserCheck,
+  BarChart3,
 } from 'lucide-react';
 
 export function AdminDashboard() {
@@ -226,7 +227,7 @@ export function AdminDashboard() {
       </Card>
 
       {/* פעולות מהירות */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <Card
           className="cursor-pointer hover:shadow-lg hover:border-[#0ca7aa]/40 transition-all duration-300 group"
           onClick={() => setCurrentView('admin-submissions')}
@@ -241,6 +242,20 @@ export function AdminDashboard() {
             {stats.pendingSubmissions > 0 && (
               <Badge variant="secondary">{stats.pendingSubmissions} {language === 'he' ? 'ממתינות' : 'معلقة'}</Badge>
             )}
+          </CardContent>
+        </Card>
+
+        <Card
+          className="cursor-pointer hover:shadow-lg hover:border-[#0ca7aa]/40 transition-all duration-300 group"
+          onClick={() => setCurrentView('admin-reports')}
+        >
+          <CardContent className="flex flex-col items-center p-6 gap-3">
+            <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+              <BarChart3 className="w-7 h-7 text-blue-500" />
+            </div>
+            <h3 className="font-semibold text-center">
+              {language === 'he' ? 'דוחות' : 'التقارير'}
+            </h3>
           </CardContent>
         </Card>
 

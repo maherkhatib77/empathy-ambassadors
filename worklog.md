@@ -68,3 +68,28 @@ Stage Summary:
 - `src/app/api/import-users/route.ts` updated to read from public folder
 - Users now load correctly on fresh browser (empty localStorage)
 - Ready for git push and Vercel redeployment
+
+---
+Task ID: 7
+Agent: Main Developer
+Task: Add admin reports system with 3 report types + print support
+
+Work Log:
+- Added `admin-reports` view to AppView union type in app-store.ts
+- Added 35+ bilingual translation keys (he/ar) for report labels to data-manager.ts
+- Created `src/components/poster-app/admin-reports.tsx` with 3 tabbed reports:
+  1. Submission Report: table with image, student name, ID, class, category, status, date
+  2. Votes Report: ranked table with image, student name, class, category, vote count, medal badges for top 3
+  3. Participation Report: pie chart (voted vs not), bar chart per class (voted vs total), class summary table with progress bars, voter list
+- Added print button with @media print CSS (hides nav/buttons, shrinks images)
+- Added summary stat cards at top (total submissions, approved, voters, participation rate)
+- Added "דוחות" card to admin dashboard (grid changed from 3 to 4 columns)
+- Updated page.tsx ViewRouter to include admin-reports case
+- Fixed lint error (useMemo dependency mismatch)
+- Verified via agent-browser: all 3 tabs render correctly, back button works, participation chart shows all 12 classes
+
+Stage Summary:
+- New file: `src/components/poster-app/admin-reports.tsx`
+- Modified: `src/store/app-store.ts`, `src/lib/data-manager.ts`, `src/app/page.tsx`, `src/components/poster-app/admin-dashboard.tsx`
+- Uses recharts (BarChart, PieChart) already in project dependencies
+- Print-optimized with @media print CSS rules

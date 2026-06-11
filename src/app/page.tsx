@@ -16,6 +16,7 @@ import { AdminLogin } from '@/components/poster-app/admin-login';
 import { AdminDashboard } from '@/components/poster-app/admin-dashboard';
 import { AdminSubmissions } from '@/components/poster-app/admin-submissions';
 import { AdminSettings } from '@/components/poster-app/admin-settings';
+import { AdminReports } from '@/components/poster-app/admin-reports';
 
 // ---- מיפוי תצוגות לקומפוננטות ----
 function ViewRouter({ view }: { view: AppView }) {
@@ -36,6 +37,8 @@ function ViewRouter({ view }: { view: AppView }) {
       return <AdminSubmissions />;
     case 'admin-settings':
       return <AdminSettings />;
+    case 'admin-reports':
+      return <AdminReports />;
     default:
       return <LoginScreen />;
   }

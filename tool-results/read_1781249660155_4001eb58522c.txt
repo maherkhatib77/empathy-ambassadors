@@ -1,0 +1,707 @@
+     1→     1→     1→// ===================================================================
+     2→     2→     2→// AdminSettings - ניהול הגדרות (טוגלים, מצב הצבעה, קטגוריות, טקסטים)
+     3→     3→     3→// ===================================================================
+     4→     4→     4→
+     5→     5→     5→'use client';
+     6→     6→     6→
+     7→     7→     7→import { useState } from 'react';
+     8→     8→     8→import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+     9→     9→     9→import { Button } from '@/components/ui/button';
+    10→    10→    10→import { Switch } from '@/components/ui/switch';
+    11→    11→    11→import { Input } from '@/components/ui/input';
+    12→    12→    12→import { Badge } from '@/components/ui/badge';
+    13→    13→    13→import { useAppStore } from '@/store/app-store';
+    14→    14→    14→import { DataManager, type VotingMode, DEFAULT_SETTINGS } from '@/lib/data-manager';
+    15→    15→    15→import { useTranslation } from '@/lib/translations';
+    16→    16→    16→import { ArrowLeft, Settings, Plus, X, Save, RotateCcw, Globe, Type, Vote, Info, Lock, Shield, UserPlus, Trash2 } from 'lucide-react';
+    17→    17→    17→
+    18→    18→    18→export function AdminSettings() {
+    19→    19→    19→  const settings = useAppStore((s) => s.settings);
+    20→    20→    20→  const refreshSettings = useAppStore((s) => s.refreshSettings);
+    21→    21→    21→  const language = useAppStore((s) => s.language);
+    22→    22→    22→  const setCurrentView = useAppStore((s) => s.setCurrentView);
+    23→    23→    23→  const { t } = useTranslation();
+    24→    24→    24→
+    25→    25→    25→  // הגדרות מקומיות לעריכה
+    26→    26→    26→  const [votingOpen, setVotingOpen] = useState(settings.voting_open);
+    27→    27→    27→  const [submissionOpen, setSubmissionOpen] = useState(settings.submission_open);
+    28→    28→    28→  const [votingMode, setVotingMode] = useState<VotingMode>(settings.voting_mode);
+    29→    29→    29→
+    30→    30→    30→  // קטגוריות
+    31→    31→    31→  const [categoriesHe, setCategoriesHe] = useState<string[]>([...settings.categories.he]);
+    32→    32→    32→  const [categoriesAr, setCategoriesAr] = useState<string[]>([...settings.categories.ar]);
+    33→    33→    33→  const [newCatHe, setNewCatHe] = useState('');
+    34→    34→    34→  const [newCatAr, setNewCatAr] = useState('');
+    35→    35→    35→
+    36→    36→    36→  // טקסטים
+    37→    37→    37→  const [textsHe, setTextsHe] = useState<Record<string, string>>({ ...settings.texts.he });
+    38→    38→    38→  const [textsAr, setTextsAr] = useState<Record<string, string>>({ ...settings.texts.ar });
+    39→    39→    39→
+    40→    40→    40→  // ---- סיסמת מנהל ----
+    41→    41→    41→  const [currentPass, setCurrentPass] = useState('');
+    42→    42→    42→  const [newPass, setNewPass] = useState('');
+    43→    43→    43→  const [confirmPass, setConfirmPass] = useState('');
+    44→    44→    44→  const [passMsg, setPassMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+    45→    45→    45→
+    46→    46→    46→  // ---- קודי מנהל משנה ----
+    47→    47→    47→  const [adminCodes, setAdminCodes] = useState<string[]>(() => DataManager.getAdminCodes());
+    48→    48→    48→  const [newAdminCode, setNewAdminCode] = useState('');
+    49→    49→    49→
+    50→    50→    50→  // ---- משתמשים מיוחדים ----
+    51→    51→    51→  const [customUsers, setCustomUsers] = useState(() => DataManager.getCustomUsers());
+    52→    52→    52→  const [newUserId, setNewUserId] = useState('');
+    53→    53→    53→  const [newUserName, setNewUserName] = useState('');
+    54→    54→    54→  const [newUserClass, setNewUserClass] = useState('');
+    55→    55→    55→  const [newUserRole, setNewUserRole] = useState<'student' | 'parent'>('student');
+    56→    56→    56→  const [customUserMsg, setCustomUserMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+    57→    57→    57→
+    58→    58→    58→  // ---- שמירת טוגלים ----
+    59→    59→    59→  const handleToggle = (key: 'voting_open' | 'submission_open', value: boolean) => {
+    60→    60→    60→    if (key === 'voting_open') setVotingOpen(value);
+    61→    61→    61→    else setSubmissionOpen(value);
+    62→    62→    62→    DataManager.updateSettings({ [key]: value });
+    63→    63→    63→    refreshSettings();
+    64→    64→    64→  };
+    65→    65→    65→
+    66→    66→    66→  // ---- שמירת מצב הצבעה ----
+    67→    67→    67→  const handleVotingModeChange = (mode: VotingMode) => {
+    68→    68→    68→    setVotingMode(mode);
+    69→    69→    69→    DataManager.updateSettings({ voting_mode: mode });
+    70→    70→    70→    refreshSettings();
+    71→    71→    71→  };
+    72→    72→    72→
+    73→    73→    73→  // ---- הוספת קטגוריה ----
+    74→    74→    74→  const addCategoryHe = () => {
+    75→    75→    75→    if (!newCatHe.trim()) return;
+    76→    76→    76→    const updated = [...categoriesHe, newCatHe.trim()];
+    77→    77→    77→    setCategoriesHe(updated);
+    78→    78→    78→    setNewCatHe('');
+    79→    79→    79→    saveCategories(updated, categoriesAr);
+    80→    80→    80→  };
+    81→    81→    81→
+    82→    82→    82→  const addCategoryAr = () => {
+    83→    83→    83→    if (!newCatAr.trim()) return;
+    84→    84→    84→    const updated = [...categoriesAr, newCatAr.trim()];
+    85→    85→    85→    setCategoriesAr(updated);
+    86→    86→    86→    setNewCatAr('');
+    87→    87→    87→    saveCategories(categoriesHe, updated);
+    88→    88→    88→  };
+    89→    89→    89→
+    90→    90→    90→  const removeCategory = (lang: 'he' | 'ar', index: number) => {
+    91→    91→    91→    if (lang === 'he') {
+    92→    92→    92→      const updated = categoriesHe.filter((_, i) => i !== index);
+    93→    93→    93→      setCategoriesHe(updated);
+    94→    94→    94→      saveCategories(updated, categoriesAr);
+    95→    95→    95→    } else {
+    96→    96→    96→      const updated = categoriesAr.filter((_, i) => i !== index);
+    97→    97→    97→      setCategoriesAr(updated);
+    98→    98→    98→      saveCategories(categoriesHe, updated);
+    99→    99→    99→    }
+   100→   100→   100→  };
+   101→   101→   101→
+   102→   102→   102→  const saveCategories = (he: string[], ar: string[]) => {
+   103→   103→   103→    DataManager.updateSettings({
+   104→   104→   104→      categories: { he, ar },
+   105→   105→   105→    });
+   106→   106→   106→    refreshSettings();
+   107→   107→   107→  };
+   108→   108→   108→
+   109→   109→   109→  // ---- שמירת טקסטים ----
+   110→   110→   110→  const saveTexts = () => {
+   111→   111→   111→    DataManager.updateSettings({
+   112→   112→   112→      texts: { he: textsHe, ar: textsAr },
+   113→   113→   113→    });
+   114→   114→   114→    refreshSettings();
+   115→   115→   115→  };
+   116→   116→   116→
+   117→   117→   117→  const updateTextHe = (key: string, value: string) => {
+   118→   118→   118→    setTextsHe((prev) => ({ ...prev, [key]: value }));
+   119→   119→   119→  };
+   120→   120→   120→
+   121→   121→   121→  const updateTextAr = (key: string, value: string) => {
+   122→   122→   122→    setTextsAr((prev) => ({ ...prev, [key]: value }));
+   123→   123→   123→  };
+   124→   124→   124→
+   125→   125→   125→  // ---- איפוס הגדרות ----
+   126→   126→   126→  const resetSettings = () => {
+   127→   127→   127→    const msg = language === 'he'
+   128→   128→   128→      ? 'האם לאפס את ההגדרות לברירת מחדל?'
+   129→   129→   129→      : 'هل تريد إعادة تعيين الإعدادات إلى الافتراضية؟';
+   130→   130→   130→    if (window.confirm(msg)) {
+   131→   131→   131→      localStorage.removeItem('empathy_settings');
+   132→   132→   132→      localStorage.removeItem('empathy_initialized');
+   133→   133→   133→      DataManager.initDefaults();
+   134→   134→   134→      const fresh = DataManager.getSettings();
+   135→   135→   135→      setVotingOpen(fresh.voting_open);
+   136→   136→   136→      setSubmissionOpen(fresh.submission_open);
+   137→   137→   137→      setVotingMode(fresh.voting_mode);
+   138→   138→   138→      setCategoriesHe([...fresh.categories.he]);
+   139→   139→   139→      setCategoriesAr([...fresh.categories.ar]);
+   140→   140→   140→      setTextsHe({ ...fresh.texts.he });
+   141→   141→   141→      setTextsAr({ ...fresh.texts.ar });
+   142→   142→   142→      refreshSettings();
+   143→   143→   143→    }
+   144→   144→   144→  };
+   145→   145→   145→
+   146→   146→   146→  // ---- שינוי סיסמת מנהל ----
+   147→   147→   147→  const handleChangePassword = () => {
+   148→   148→   148→    setPassMsg(null);
+   149→   149→   149→    if (!currentPass || !newPass || !confirmPass) {
+   150→   150→   150→      setPassMsg({ type: 'error', text: t('admin_password_error_empty') });
+   151→   151→   151→      return;
+   152→   152→   152→    }
+   153→   153→   153→    if (currentPass !== DataManager.getAdminPassword()) {
+   154→   154→   154→      setPassMsg({ type: 'error', text: t('admin_password_error_wrong') });
+   155→   155→   155→      return;
+   156→   156→   156→    }
+   157→   157→   157→    if (newPass !== confirmPass) {
+   158→   158→   158→      setPassMsg({ type: 'error', text: t('admin_password_error_match') });
+   159→   159→   159→      return;
+   160→   160→   160→    }
+   161→   161→   161→    DataManager.setAdminPassword(newPass);
+   162→   162→   162→    setPassMsg({ type: 'success', text: t('admin_password_success') });
+   163→   163→   163→    setCurrentPass('');
+   164→   164→   164→    setNewPass('');
+   165→   165→   165→    setConfirmPass('');
+   166→   166→   166→  };
+   167→   167→   167→
+   168→   168→   168→  // ---- ניהול קודי מנהל משנה ----
+   169→   169→   169→  const handleAddAdminCode = () => {
+   170→   170→   170→    const code = newAdminCode.trim();
+   171→   171→   171→    if (!code) return;
+   172→   172→   172→    DataManager.addAdminCode(code);
+   173→   173→   173→    setAdminCodes(DataManager.getAdminCodes());
+   174→   174→   174→    setNewAdminCode('');
+   175→   175→   175→  };
+   176→   176→   176→
+   177→   177→   177→  const handleRemoveAdminCode = (code: string) => {
+   178→   178→   178→    DataManager.removeAdminCode(code);
+   179→   179→   179→    setAdminCodes(DataManager.getAdminCodes());
+   180→   180→   180→  };
+   181→   181→   181→
+   182→   182→   182→  // ---- ניהול משתמשים מיוחדים ----
+   183→   183→   183→  const handleAddCustomUser = () => {
+   184→   184→   184→    setCustomUserMsg(null);
+   185→   185→   185→    const id = newUserId.trim();
+   186→   186→   186→    const name = newUserName.trim();
+   187→   187→   187→    if (!id || !name) {
+   188→   188→   188→      setCustomUserMsg({ type: 'error', text: language === 'he' ? 'נא למלא תעודת זהות ושם' : 'يرجى ملء رقم الهوية والاسم' });
+   189→   189→   189→      return;
+   190→   190→   190→    }
+   191→   191→   191→    // בדיקה שאין כפילות
+   192→   192→   192→    const existing = DataManager.findUserByIdAll(id);
+   193→   193→   193→    if (existing) {
+   194→   194→   194→      setCustomUserMsg({ type: 'error', text: language === 'he' ? 'תעודת זהות כבר קיימת במערכת' : 'رقم الهوية موجود بالفعل في النظام' });
+   195→   195→   195→      return;
+   196→   196→   196→    }
+   197→   197→   197→    DataManager.addCustomUser({ id, name, role: newUserRole, class: newUserClass.trim() });
+   198→   198→   198→    setCustomUsers(DataManager.getCustomUsers());
+   199→   199→   199→    setNewUserId('');
+   200→   200→   200→    setNewUserName('');
+   201→   201→   201→    setNewUserClass('');
+   202→   202→   202→    setCustomUserMsg({ type: 'success', text: language === 'he' ? 'המשתמש נוסף בהצלחה' : 'تمت إضافة المستخدم بنجاح' });
+   203→   203→   203→    setTimeout(() => setCustomUserMsg(null), 3000);
+   204→   204→   204→  };
+   205→   205→   205→
+   206→   206→   206→  const handleRemoveCustomUser = (userId: string) => {
+   207→   207→   207→    DataManager.removeCustomUser(userId);
+   208→   208→   208→    setCustomUsers(DataManager.getCustomUsers());
+   209→   209→   209→  };
+   210→   210→   210→
+   211→   211→   211→  const textKeys = Object.keys(textsHe);
+   212→   212→   212→
+   213→   213→   213→  return (
+   214→   214→   214→    <div className="p-4 space-y-6 max-w-4xl mx-auto">
+   215→   215→   215→      {/* כותרת */}
+   216→   216→   216→      <div className="flex items-center justify-between flex-wrap gap-3">
+   217→   217→   217→        <div className="flex items-center gap-3">
+   218→   218→   218→          <button
+   219→   219→   219→            onClick={() => setCurrentView('admin-dashboard')}
+   220→   220→   220→            className="p-2 rounded-full hover:bg-muted transition-colors"
+   221→   221→   221→          >
+   222→   222→   222→            <ArrowLeft className="w-5 h-5" />
+   223→   223→   223→          </button>
+   224→   224→   224→          <div>
+   225→   225→   225→            <h2 className="text-2xl font-bold flex items-center gap-2">
+   226→   226→   226→              <Settings className="w-6 h-6 text-[#0ca7aa]" />
+   227→   227→   227→              {language === 'he' ? 'הגדרות' : 'الإعدادات'}
+   228→   228→   228→            </h2>
+   229→   229→   229→          </div>
+   230→   230→   230→        </div>
+   231→   231→   231→        <div className="flex gap-2">
+   232→   232→   232→          <Button variant="outline" size="sm" onClick={resetSettings}>
+   233→   233→   233→            <RotateCcw className="w-4 h-4 ms-1" />
+   234→   234→   234→            {language === 'he' ? 'איפוס' : 'إعادة تعيين'}
+   235→   235→   235→          </Button>
+   236→   236→   236→        </div>
+   237→   237→   237→      </div>
+   238→   238→   238→
+   239→   239→   239→      {/* טוגלים */}
+   240→   240→   240→      <Card>
+   241→   241→   241→        <CardHeader className="pb-3">
+   242→   242→   242→          <CardTitle className="text-lg flex items-center gap-2">
+   243→   243→   243→            <Settings className="w-5 h-5" />
+   244→   244→   244→            {language === 'he' ? 'מצב מערכת' : 'حالة النظام'}
+   245→   245→   245→          </CardTitle>
+   246→   246→   246→        </CardHeader>
+   247→   247→   247→        <CardContent className="space-y-4">
+   248→   248→   248→          {/* הגשה פתוחה */}
+   249→   249→   249→          <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+   250→   250→   250→            <div>
+   251→   251→   251→              <p className="font-medium">
+   252→   252→   252→                {language === 'he' ? 'פתח/סגור הגשת פוסטרים' : 'فتح/إغلاق تقديم الملصقات'}
+   253→   253→   253→              </p>
+   254→   254→   254→              <p className="text-sm text-muted-foreground">
+   255→   255→   255→                {language === 'he'
+   256→   256→   256→                  ? 'קבע אם תלמידים יכולים להגיש פוסטרים חדשים'
+   257→   257→   257→                  : 'حدد ما إذا كان يمكن للطلاب تقديم ملصقات جديدة'}
+   258→   258→   258→              </p>
+   259→   259→   259→            </div>
+   260→   260→   260→            <Switch
+   261→   261→   261→              checked={submissionOpen}
+   262→   262→   262→              onCheckedChange={(v) => handleToggle('submission_open', v)}
+   263→   263→   263→            />
+   264→   264→   264→          </div>
+   265→   265→   265→
+   266→   266→   266→          {/* הצבעה פתוחה */}
+   267→   267→   267→          <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+   268→   268→   268→            <div>
+   269→   269→   269→              <p className="font-medium">
+   270→   270→   270→                {language === 'he' ? 'פתח/סגור הצבעה' : 'فتح/إغلاق التصويت'}
+   271→   271→   271→              </p>
+   272→   272→   272→              <p className="text-sm text-muted-foreground">
+   273→   273→   273→                {language === 'he'
+   274→   274→   274→                  ? 'קבע אם ההצבעה פתוחה לכולם'
+   275→   275→   275→                  : 'حدد ما إذا كان التصويت مفتوحًا للجميع'}
+   276→   276→   276→              </p>
+   277→   277→   277→            </div>
+   278→   278→   278→            <Switch
+   279→   279→   279→              checked={votingOpen}
+   280→   280→   280→              onCheckedChange={(v) => handleToggle('voting_open', v)}
+   281→   281→   281→            />
+   282→   282→   282→          </div>
+   283→   283→   283→        </CardContent>
+   284→   284→   284→      </Card>
+   285→   285→   285→
+   286→   286→   286→      {/* מצב הצבעה - חשוב! */}
+   287→   287→   287→      <Card className="border-[#0ca7aa]/30">
+   288→   288→   288→        <CardHeader className="pb-3">
+   289→   289→   289→          <CardTitle className="text-lg flex items-center gap-2">
+   290→   290→   290→            <Vote className="w-5 h-5 text-[#0ca7aa]" />
+   291→   291→   291→            {language === 'he' ? 'מצב הצבעה' : 'وضع التصويت'}
+   292→   292→   292→          </CardTitle>
+   293→   293→   293→          <CardDescription className="flex items-start gap-2">
+   294→   294→   294→            <Info className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+   295→   295→   295→            <span>
+   296→   296→   296→              {language === 'he'
+   297→   297→   297→                ? 'קבע כיצד המצביעים יכולים להצביע. בחר את המצב המתאים לתחרות.'
+   298→   298→   298→                : 'حدد كيف يمكن للمصوتين التصويت. اختر الوضع المناسب للمسابقة.'}
+   299→   299→   299→            </span>
+   300→   300→   300→          </CardDescription>
+   301→   301→   301→        </CardHeader>
+   302→   302→   302→        <CardContent className="space-y-3">
+   303→   303→   303→          {/* אפשרות 1: הצבעה בודדת */}
+   304→   304→   304→          <button
+   305→   305→   305→            onClick={() => handleVotingModeChange('single')}
+   306→   306→   306→            className={`w-full flex items-start gap-3 p-4 rounded-xl border-2 transition-all text-start ${
+   307→   307→   307→              votingMode === 'single'
+   308→   308→   308→                ? 'border-[#0ca7aa] bg-[#0ca7aa]/5'
+   309→   309→   309→                : 'border-border hover:border-[#0ca7aa]/30'
+   310→   310→   310→            }`}
+   311→   311→   311→          >
+   312→   312→   312→            <div className={`w-5 h-5 rounded-full border-2 mt-0.5 shrink-0 flex items-center justify-center ${
+   313→   313→   313→              votingMode === 'single' ? 'border-[#0ca7aa]' : 'border-muted-foreground/30'
+   314→   314→   314→            }`}>
+   315→   315→   315→              {votingMode === 'single' && <div className="w-2.5 h-2.5 rounded-full bg-[#0ca7aa]" />}
+   316→   316→   316→            </div>
+   317→   317→   317→            <div>
+   318→   318→   318→              <p className="font-semibold flex items-center gap-2">
+   319→   319→   319→                <span>1️⃣</span>
+   320→   320→   320→                {language === 'he' ? 'הצבעה בודדת' : 'تصويت فردي'}
+   321→   321→   321→              </p>
+   322→   322→   322→              <p className="text-sm text-muted-foreground mt-1">
+   323→   323→   323→                {language === 'he'
+   324→   324→   324→                  ? 'כל מצביע יכול לבחור פוסטר אחד בלבד מכל הקטגוריות. הצבעה אחת לכל התחרות.'
+   325→   325→   325→                  : 'يمكن لكل مصوت اختيار ملصق واحد فقط من جميع الفئات. تصويت واحد لكل المسابقة.'}
+   326→   326→   326→              </p>
+   327→   327→   327→            </div>
+   328→   328→   328→          </button>
+   329→   329→   329→
+   330→   330→   330→          {/* אפשרות 2: לפי קטגוריה */}
+   331→   331→   331→          <button
+   332→   332→   332→            onClick={() => handleVotingModeChange('per_category')}
+   333→   333→   333→            className={`w-full flex items-start gap-3 p-4 rounded-xl border-2 transition-all text-start ${
+   334→   334→   334→              votingMode === 'per_category'
+   335→   335→   335→                ? 'border-[#0ca7aa] bg-[#0ca7aa]/5'
+   336→   336→   336→                : 'border-border hover:border-[#0ca7aa]/30'
+   337→   337→   337→            }`}
+   338→   338→   338→          >
+   339→   339→   339→            <div className={`w-5 h-5 rounded-full border-2 mt-0.5 shrink-0 flex items-center justify-center ${
+   340→   340→   340→              votingMode === 'per_category' ? 'border-[#0ca7aa]' : 'border-muted-foreground/30'
+   341→   341→   341→            }`}>
+   342→   342→   342→              {votingMode === 'per_category' && <div className="w-2.5 h-2.5 rounded-full bg-[#0ca7aa]" />}
+   343→   343→   343→            </div>
+   344→   344→   344→            <div>
+   345→   345→   345→              <p className="font-semibold flex items-center gap-2">
+   346→   346→   346→                <span>📑</span>
+   347→   347→   347→                {language === 'he' ? 'הצבעה לפי קטגוריה' : 'تصويت حسب الفئة'}
+   348→   348→   348→              </p>
+   349→   349→   349→              <p className="text-sm text-muted-foreground mt-1">
+   350→   350→   350→                {language === 'he'
+   351→   351→   351→                  ? 'כל מצביע יכול להצביע פעם אחת בכל קטגוריה. לדוגמה: הצבעה אחת ב"סובלנות" והצבעה אחת ב"איכות הסביבה".'
+   352→   352→   352→                  : 'يمكن لكل مصوت التصويت مرة واحدة في كل فئة. مثال: تصويت واحد في "التسامح" وتصويت واحد في "جودة البيئة".'}
+   353→   353→   353→              </p>
+   354→   354→   354→            </div>
+   355→   355→   355→          </button>
+   356→   356→   356→
+   357→   357→   357→          {/* מצב נוכחי */}
+   358→   358→   358→          <div className="flex items-center gap-2 pt-2">
+   359→   359→   359→            <Badge className={votingMode === 'single' ? 'bg-purple-500' : 'bg-[#0ca7aa]'} variant="secondary">
+   360→   360→   360→              {votingMode === 'single'
+   361→   361→   361→                ? (language === 'he' ? '✓ הצבעה בודדת' : '✓ تصويت فردي')
+   362→   362→   362→                : (language === 'he' ? '✓ לפי קטגוריה' : '✓ حسب الفئة')}
+   363→   363→   363→            </Badge>
+   364→   364→   364→          </div>
+   365→   365→   365→        </CardContent>
+   366→   366→   366→      </Card>
+   367→   367→   367→
+   368→   368→   368→      {/* קטגוריות */}
+   369→   369→   369→      <Card>
+   370→   370→   370→        <CardHeader className="pb-3">
+   371→   371→   371→          <CardTitle className="text-lg flex items-center gap-2">
+   372→   372→   372→            <Globe className="w-5 h-5" />
+   373→   373→   373→            {language === 'he' ? 'קטגוריות' : 'الفئات'}
+   374→   374→   374→          </CardTitle>
+   375→   375→   375→        </CardHeader>
+   376→   376→   376→        <CardContent className="space-y-6">
+   377→   377→   377→          {/* קטגוריות בעברית */}
+   378→   378→   378→          <div>
+   379→   379→   379→            <p className="font-medium mb-2 text-sm">
+   380→   380→   380→              {language === 'he' ? 'קטגוריות בעברית' : 'الفئات بالعبرية'}
+   381→   381→   381→            </p>
+   382→   382→   382→            <div className="flex flex-wrap gap-2 mb-2">
+   383→   383→   383→              {categoriesHe.map((cat, idx) => (
+   384→   384→   384→                <span
+   385→   385→   385→                  key={idx}
+   386→   386→   386→                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#0ca7aa]/10 text-[#0ca7aa] text-sm"
+   387→   387→   387→                >
+   388→   388→   388→                  {cat}
+   389→   389→   389→                  <button
+   390→   390→   390→                    onClick={() => removeCategory('he', idx)}
+   391→   391→   391→                    className="hover:text-destructive transition-colors"
+   392→   392→   392→                  >
+   393→   393→   393→                    <X className="w-3 h-3" />
+   394→   394→   394→                  </button>
+   395→   395→   395→                </span>
+   396→   396→   396→              ))}
+   397→   397→   397→            </div>
+   398→   398→   398→            <div className="flex gap-2">
+   399→   399→   399→              <Input
+   400→   400→   400→                value={newCatHe}
+   401→   401→   401→                onChange={(e) => setNewCatHe(e.target.value)}
+   402→   402→   402→                onKeyDown={(e) => e.key === 'Enter' && addCategoryHe()}
+   403→   403→   403→                placeholder={language === 'he' ? 'קטגוריה חדשה...' : 'فئة جديدة...'}
+   404→   404→   404→                className="flex-1"
+   405→   405→   405→              />
+   406→   406→   406→              <Button size="sm" onClick={addCategoryHe} variant="outline">
+   407→   407→   407→                <Plus className="w-4 h-4" />
+   408→   408→   408→              </Button>
+   409→   409→   409→            </div>
+   410→   410→   410→          </div>
+   411→   411→   411→
+   412→   412→   412→          {/* קטגוריות בערבית */}
+   413→   413→   413→          <div>
+   414→   414→   414→            <p className="font-medium mb-2 text-sm">
+   415→   415→   415→              {language === 'he' ? 'קטגוריות בערבית' : 'الفئات بالعربية'}
+   416→   416→   416→            </p>
+   417→   417→   417→            <div className="flex flex-wrap gap-2 mb-2">
+   418→   418→   418→              {categoriesAr.map((cat, idx) => (
+   419→   419→   419→                <span
+   420→   420→   420→                  key={idx}
+   421→   421→   421→                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#0ca7aa]/10 text-[#0ca7aa] text-sm"
+   422→   422→   422→                >
+   423→   423→   423→                  {cat}
+   424→   424→   424→                  <button
+   425→   425→   425→                    onClick={() => removeCategory('ar', idx)}
+   426→   426→   426→                    className="hover:text-destructive transition-colors"
+   427→   427→   427→                  >
+   428→   428→   428→                    <X className="w-3 h-3" />
+   429→   429→   429→                  </button>
+   430→   430→   430→                </span>
+   431→   431→   431→              ))}
+   432→   432→   432→            </div>
+   433→   433→   433→            <div className="flex gap-2">
+   434→   434→   434→              <Input
+   435→   435→   435→                value={newCatAr}
+   436→   436→   436→                onChange={(e) => setNewCatAr(e.target.value)}
+   437→   437→   437→                onKeyDown={(e) => e.key === 'Enter' && addCategoryAr()}
+   438→   438→   438→                placeholder={language === 'he' ? 'קטגוריה חדשה...' : 'فئة جديدة...'}
+   439→   439→   439→                className="flex-1"
+   440→   440→   440→              />
+   441→   441→   441→              <Button size="sm" onClick={addCategoryAr} variant="outline">
+   442→   442→   442→                <Plus className="w-4 h-4" />
+   443→   443→   443→              </Button>
+   444→   444→   444→            </div>
+   445→   445→   445→          </div>
+   446→   446→   446→        </CardContent>
+   447→   447→   447→      </Card>
+   448→   448→   448→
+   449→   449→   449→      {/* שינוי סיסמת מנהל */}
+   450→   450→   450→      <Card className="border-[#e74c3c]/30">
+   451→   451→   451→        <CardHeader className="pb-3">
+   452→   452→   452→          <CardTitle className="text-lg flex items-center gap-2">
+   453→   453→   453→            <Lock className="w-5 h-5 text-[#e74c3c]" />
+   454→   454→   454→            {t('admin_password_title')}
+   455→   455→   455→          </CardTitle>
+   456→   456→   456→        </CardHeader>
+   457→   457→   457→        <CardContent className="space-y-3">
+   458→   458→   458→          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+   459→   459→   459→            <Input
+   460→   460→   460→              type="password"
+   461→   461→   461→              value={currentPass}
+   462→   462→   462→              onChange={(e) => setCurrentPass(e.target.value)}
+   463→   463→   463→              placeholder={t('admin_password_current')}
+   464→   464→   464→              className="h-10"
+   465→   465→   465→            />
+   466→   466→   466→            <Input
+   467→   467→   467→              type="password"
+   468→   468→   468→              value={newPass}
+   469→   469→   469→              onChange={(e) => setNewPass(e.target.value)}
+   470→   470→   470→              placeholder={t('admin_password_new')}
+   471→   471→   471→              className="h-10"
+   472→   472→   472→            />
+   473→   473→   473→            <Input
+   474→   474→   474→              type="password"
+   475→   475→   475→              value={confirmPass}
+   476→   476→   476→              onChange={(e) => setConfirmPass(e.target.value)}
+   477→   477→   477→              placeholder={t('admin_password_confirm')}
+   478→   478→   478→              className="h-10"
+   479→   479→   479→            />
+   480→   480→   480→          </div>
+   481→   481→   481→          <div className="flex items-center justify-between">
+   482→   482→   482→            <Button onClick={handleChangePassword} variant="outline" className="border-[#e74c3c]/30 text-[#e74c3c] hover:bg-[#e74c3c]/10">
+   483→   483→   483→              <Save className="w-4 h-4 ms-2" />
+   484→   484→   484→              {t('admin_password_save')}
+   485→   485→   485→            </Button>
+   486→   486→   486→            {passMsg && (
+   487→   487→   487→              <p className={`text-sm animate-in fade-in duration-200 ${passMsg.type === 'success' ? 'text-green-600' : 'text-destructive'}`}>
+   488→   488→   488→                {passMsg.text}
+   489→   489→   489→              </p>
+   490→   490→   490→            )}
+   491→   491→   491→          </div>
+   492→   492→   492→        </CardContent>
+   493→   493→   493→      </Card>
+   494→   494→   494→
+   495→   495→   495→      {/* קודי מנהל משנה */}
+   496→   496→   496→      <Card>
+   497→   497→   497→        <CardHeader className="pb-3">
+   498→   498→   498→          <CardTitle className="text-lg flex items-center gap-2">
+   499→   499→   499→            <Shield className="w-5 h-5 text-purple-500" />
+   500→   500→   500→            {t('admin_codes_title')}
+   501→   501→   501→          </CardTitle>
+   502→   502→   502→          <CardDescription>{t('admin_codes_desc')}</CardDescription>
+   503→   503→   503→        </CardHeader>
+   504→   504→   504→        <CardContent className="space-y-3">
+   505→   505→   505→          <div className="flex gap-2">
+   506→   506→   506→            <Input
+   507→   507→   507→              value={newAdminCode}
+   508→   508→   508→              onChange={(e) => setNewAdminCode(e.target.value)}
+   509→   509→   509→              onKeyDown={(e) => e.key === 'Enter' && handleAddAdminCode()}
+   510→   510→   510→              placeholder={t('admin_codes_placeholder')}
+   511→   511→   511→              className="flex-1 h-10"
+   512→   512→   512→            />
+   513→   513→   513→            <Button size="sm" onClick={handleAddAdminCode} variant="outline">
+   514→   514→   514→              <Plus className="w-4 h-4 ms-1" />
+   515→   515→   515→              {t('admin_codes_add')}
+   516→   516→   516→            </Button>
+   517→   517→   517→          </div>
+   518→   518→   518→          {adminCodes.length === 0 ? (
+   519→   519→   519→            <p className="text-sm text-muted-foreground text-center py-2">{t('admin_codes_empty')}</p>
+   520→   520→   520→          ) : (
+   521→   521→   521→            <div className="flex flex-wrap gap-2">
+   522→   522→   522→              {adminCodes.map((code) => (
+   523→   523→   523→                <Badge key={code} variant="secondary" className="px-3 py-1.5 text-sm gap-1">
+   524→   524→   524→                  <span className="font-mono">{code}</span>
+   525→   525→   525→                  <button onClick={() => handleRemoveAdminCode(code)} className="hover:text-destructive">
+   526→   526→   526→                    <X className="w-3 h-3" />
+   527→   527→   527→                  </button>
+   528→   528→   528→                </Badge>
+   529→   529→   529→              ))}
+   530→   530→   530→            </div>
+   531→   531→   531→          )}
+   532→   532→   532→        </CardContent>
+   533→   533→   533→      </Card>
+   534→   534→   534→
+   535→   535→   535→      {/* משתמשים מיוחדים */}
+   536→   536→   536→      <Card>
+   537→   537→   537→        <CardHeader className="pb-3">
+   538→   538→   538→          <CardTitle className="text-lg flex items-center gap-2">
+   539→   539→   539→            <UserPlus className="w-5 h-5 text-[#0ca7aa]" />
+   540→   540→   540→            {t('custom_users_title')}
+   541→   541→   541→          </CardTitle>
+   542→   542→   542→          <CardDescription>{t('custom_users_desc')}</CardDescription>
+   543→   543→   543→        </CardHeader>
+   544→   544→   544→        <CardContent className="space-y-4">
+   545→   545→   545→          {/* טופס הוספה */}
+   546→   546→   546→          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 items-end">
+   547→   547→   547→            <div>
+   548→   548→   548→              <label className="text-xs text-muted-foreground mb-1 block">{t('report_student_id')}</label>
+   549→   549→   549→              <Input
+   550→   550→   550→                value={newUserId}
+   551→   551→   551→                onChange={(e) => setNewUserId(e.target.value)}
+   552→   552→   552→                placeholder={t('custom_users_id_placeholder')}
+   553→   553→   553→                className="h-10"
+   554→   554→   554→              />
+   555→   555→   555→            </div>
+   556→   556→   556→            <div>
+   557→   557→   557→              <label className="text-xs text-muted-foreground mb-1 block">{t('report_student_name')}</label>
+   558→   558→   558→              <Input
+   559→   559→   559→                value={newUserName}
+   560→   560→   560→                onChange={(e) => setNewUserName(e.target.value)}
+   561→   561→   561→                placeholder={t('custom_users_name_placeholder')}
+   562→   562→   562→                className="h-10"
+   563→   563→   563→              />
+   564→   564→   564→            </div>
+   565→   565→   565→            <div>
+   566→   566→   566→              <label className="text-xs text-muted-foreground mb-1 block">{t('report_class')}</label>
+   567→   567→   567→              <Input
+   568→   568→   568→                value={newUserClass}
+   569→   569→   569→                onChange={(e) => setNewUserClass(e.target.value)}
+   570→   570→   570→                placeholder={t('custom_users_class_placeholder')}
+   571→   571→   571→                className="h-10"
+   572→   572→   572→              />
+   573→   573→   573→            </div>
+   574→   574→   574→            <div>
+   575→   575→   575→              <label className="text-xs text-muted-foreground mb-1 block">
+   576→   576→   576→                {language === 'he' ? 'תפקיד' : 'الدور'}
+   577→   577→   577→              </label>
+   578→   578→   578→              <div className="flex rounded-md border overflow-hidden h-10">
+   579→   579→   579→                <button
+   580→   580→   580→                  onClick={() => setNewUserRole('student')}
+   581→   581→   581→                  className={`flex-1 text-sm transition-colors ${newUserRole === 'student' ? 'bg-[#0ca7aa] text-white' : 'bg-background hover:bg-muted'}`}
+   582→   582→   582→                >
+   583→   583→   583→                  {t('custom_users_role_student')}
+   584→   584→   584→                </button>
+   585→   585→   585→                <button
+   586→   586→   586→                  onClick={() => setNewUserRole('parent')}
+   587→   587→   587→                  className={`flex-1 text-sm transition-colors ${newUserRole === 'parent' ? 'bg-[#e67e22] text-white' : 'bg-background hover:bg-muted'}`}
+   588→   588→   588→                >
+   589→   589→   589→                  {t('custom_users_role_parent')}
+   590→   590→   590→                </button>
+   591→   591→   591→              </div>
+   592→   592→   592→            </div>
+   593→   593→   593→            <Button onClick={handleAddCustomUser} className="h-10 bg-[#0ca7aa] hover:bg-[#099598] text-white">
+   594→   594→   594→              <Plus className="w-4 h-4 ms-1" />
+   595→   595→   595→              {t('custom_users_add')}
+   596→   596→   596→            </Button>
+   597→   597→   597→          </div>
+   598→   598→   598→          {customUserMsg && (
+   599→   599→   599→            <p className={`text-sm animate-in fade-in duration-200 ${customUserMsg.type === 'success' ? 'text-green-600' : 'text-destructive'}`}>
+   600→   600→   600→              {customUserMsg.text}
+   601→   601→   601→            </p>
+   602→   602→   602→          )}
+   603→   603→   603→          {/* רשימת משתמשים מיוחדים */}
+   604→   604→   604→          {customUsers.length === 0 ? (
+   605→   605→   605→            <p className="text-sm text-muted-foreground text-center py-2">{t('custom_users_empty')}</p>
+   606→   606→   606→          ) : (
+   607→   607→   607→            <div className="max-h-48 overflow-y-auto rounded-lg border">
+   608→   608→   608→              <table className="w-full text-sm">
+   609→   609→   609→                <thead className="sticky top-0 bg-muted/80">
+   610→   610→   610→                  <tr className="border-b">
+   611→   611→   611→                    <th className="p-2 text-start font-medium">{t('report_student_id')}</th>
+   612→   612→   612→                    <th className="p-2 text-start font-medium">{t('report_student_name')}</th>
+   613→   613→   613→                    <th className="p-2 text-start font-medium hidden sm:table-cell">{t('report_class')}</th>
+   614→   614→   614→                    <th className="p-2 text-start font-medium hidden sm:table-cell">{language === 'he' ? 'תפקיד' : 'الدور'}</th>
+   615→   615→   615→                    <th className="p-2 w-10"></th>
+   616→   616→   616→                  </tr>
+   617→   617→   617→                </thead>
+   618→   618→   618→                <tbody>
+   619→   619→   619→                  {customUsers.map((u) => (
+   620→   620→   620→                    <tr key={u.id} className="border-b hover:bg-muted/30">
+   621→   621→   621→                      <td className="p-2 font-mono text-xs">{u.id}</td>
+   622→   622→   622→                      <td className="p-2">{u.name}</td>
+   623→   623→   623→                      <td className="p-2 hidden sm:table-cell">{u.class || '-'}</td>
+   624→   624→   624→                      <td className="p-2 hidden sm:table-cell">
+   625→   625→   625→                        <Badge variant={u.role === 'student' ? 'default' : 'secondary'} className={u.role === 'student' ? 'bg-[#0ca7aa] text-white' : 'bg-[#e67e22] text-white'}>
+   626→   626→   626→                          {u.role === 'student' ? t('custom_users_role_student') : t('custom_users_role_parent')}
+   627→   627→   627→                        </Badge>
+   628→   628→   628→                      </td>
+   629→   629→   629→                      <td className="p-2">
+   630→   630→   630→                        <button onClick={() => handleRemoveCustomUser(u.id)} className="text-muted-foreground hover:text-destructive transition-colors">
+   631→   631→   631→                          <Trash2 className="w-4 h-4" />
+   632→   632→   632→                        </button>
+   633→   633→   633→                      </td>
+   634→   634→   634→                    </tr>
+   635→   635→   635→                  ))}
+   636→   636→   636→                </tbody>
+   637→   637→   637→              </table>
+   638→   638→   638→            </div>
+   639→   639→   639→          )}
+   640→   640→   640→        </CardContent>
+   641→   641→   641→      </Card>
+   642→   642→   642→
+   643→   643→   643→      {/* טקסטים */}
+   644→   644→   644→      <Card>
+   645→   645→   645→        <CardHeader className="pb-3">
+   646→   646→   646→          <CardTitle className="text-lg flex items-center gap-2">
+   647→   647→   647→            <Type className="w-5 h-5" />
+   648→   648→   648→            {language === 'he' ? 'עריכת טקסטים' : 'تحرير النصوص'}
+   649→   649→   649→          </CardTitle>
+   650→   650→   650→        </CardHeader>
+   651→   651→   651→        <CardContent className="space-y-6">
+   652→   652→   652→          {/* טקסטים בעברית */}
+   653→   653→   653→          <div>
+   654→   654→   654→            <p className="font-medium mb-3 text-sm">
+   655→   655→   655→              {language === 'he' ? 'טקסטים בעברית' : 'النصوص بالعبرية'}
+   656→   656→   656→            </p>
+   657→   657→   657→            <div className="space-y-2 max-h-80 overflow-y-auto rounded-lg border p-3">
+   658→   658→   658→              {textKeys.map((key) => (
+   659→   659→   659→                <div key={key} className="grid grid-cols-[120px_1fr] gap-2 items-center">
+   660→   660→   660→                  <span className="text-xs font-mono bg-muted px-2 py-1 rounded truncate" title={key}>
+   661→   661→   661→                    {key}
+   662→   662→   662→                  </span>
+   663→   663→   663→                  <Input
+   664→   664→   664→                    value={textsHe[key] || ''}
+   665→   665→   665→                    onChange={(e) => updateTextHe(key, e.target.value)}
+   666→   666→   666→                    className="h-8 text-sm"
+   667→   667→   667→                  />
+   668→   668→   668→                </div>
+   669→   669→   669→              ))}
+   670→   670→   670→            </div>
+   671→   671→   671→          </div>
+   672→   672→   672→
+   673→   673→   673→          {/* טקסטים בערבית */}
+   674→   674→   674→          <div>
+   675→   675→   675→            <p className="font-medium mb-3 text-sm">
+   676→   676→   676→              {language === 'he' ? 'טקסטים בערבית' : 'النصوص بالعربية'}
+   677→   677→   677→            </p>
+   678→   678→   678→            <div className="space-y-2 max-h-80 overflow-y-auto rounded-lg border p-3">
+   679→   679→   679→              {textKeys.map((key) => (
+   680→   680→   680→                <div key={key} className="grid grid-cols-[120px_1fr] gap-2 items-center">
+   681→   681→   681→                  <span className="text-xs font-mono bg-muted px-2 py-1 rounded truncate" title={key}>
+   682→   682→   682→                    {key}
+   683→   683→   683→                  </span>
+   684→   684→   684→                  <Input
+   685→   685→   685→                    value={textsAr[key] || ''}
+   686→   686→   686→                    onChange={(e) => updateTextAr(key, e.target.value)}
+   687→   687→   687→                    className="h-8 text-sm"
+   688→   688→   688→                  />
+   689→   689→   689→                </div>
+   690→   690→   690→              ))}
+   691→   691→   691→            </div>
+   692→   692→   692→          </div>
+   693→   693→   693→
+   694→   694→   694→          {/* כפתור שמירה */}
+   695→   695→   695→          <Button
+   696→   696→   696→            onClick={saveTexts}
+   697→   697→   697→            className="bg-[#0ca7aa] hover:bg-[#099598] text-white"
+   698→   698→   698→          >
+   699→   699→   699→            <Save className="w-4 h-4 ms-2" />
+   700→   700→   700→            {language === 'he' ? 'שמור טקסטים' : 'حفظ النصوص'}
+   701→   701→   701→          </Button>
+   702→   702→   702→        </CardContent>
+   703→   703→   703→      </Card>
+   704→   704→   704→    </div>
+   705→   705→   705→  );
+   706→   706→   706→}
+   707→   707→   707→
